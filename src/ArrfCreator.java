@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +13,14 @@ public class ArrfCreator {
     private static final String FILENAME = "../semeval_twitter_data.txt";
 
     public static void main(String[] args) {
-
-
-        ArrayList<Attribute> attributes = defineAttributes();
-
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
         Instances dataset;
         String string = null;
         double[] values;
+        FileOutputStream fileOutputStream;
+
+        ArrayList<Attribute> attributes = defineAttributes();
 
         try{
             fileReader = new FileReader(FILENAME);
@@ -39,7 +39,10 @@ public class ArrfCreator {
                 values = new double[dataset.numAttributes()];
             }
 
-            System.out.println(dataset);
+
+            fileOutputStream = new FileOutputStream("out/semeval_twitter_data.arff");
+            fileOutputStream.write(dataset.toString().getBytes());
+            fileOutputStream.close();
 
 
 
