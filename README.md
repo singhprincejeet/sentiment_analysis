@@ -7,7 +7,8 @@ Princejeet Singh Sandhu -
  - bag of words model (words as features). 
  
  Run 1 = Prof's arff file, no stemming, no stop word removal  
- Run 2 = Our own generated arff file with stemming and stop word removal (from ?)
+ Run 2 = Our own generated arff file with stemming and stop word removal (from ?). Same as prof's file but with stop word removal and stemming  
+ Run 3 =
  
  **Need to report accuracy, confusion matrices, precision, recall and f-measures**
 
