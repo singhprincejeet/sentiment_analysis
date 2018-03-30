@@ -21,3 +21,15 @@ Run4
 		- stemmer: NullStemmer
 		- stopwordsHandler: Null
 		- tokenizer: wordTokenizer
+Run5
+	- lower case words
+	- removed stop words 
+	String to Word Vector
+		- idf transfer: true
+		- tf transfer: true
+		- lowercasetokens: false
+		- normalize all data
+		- outputWordCount: true
+		- stemmer: IteratedLovinsStemmer
+		- stopwordsHandler: Null
+		- tokenizer: wordTokenizer
