@@ -38,9 +38,9 @@ public class ArrfCreator {
                 for (String word: cleanString.split(" ")){
                     values[0] = dataset.attribute(0).addStringValue(word);
                     values[1] = getAttributeValue(entryArray[2].replace("\"", ""));
+                    dataset.add(new DenseInstance(1.0, values));
+                    values = new double[dataset.numAttributes()];
                 }
-                dataset.add(new DenseInstance(1.0, values));
-                values = new double[dataset.numAttributes()];
             }
 
 
