@@ -18,7 +18,9 @@ public class StringCleaner {
         for(String word: wordsArray){
             word = word.toLowerCase();
             if(!stopWords.isStopWord(word)){
-                word = getStemWord(word);
+                if(ArrfCreator.USE_POTTER_STEMMER){
+                    word = getStemWord(word);
+                }
                 words.add(word);
             }
         }
