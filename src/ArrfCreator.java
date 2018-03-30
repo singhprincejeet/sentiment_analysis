@@ -34,8 +34,11 @@ public class ArrfCreator {
 
             while ((entry = bufferedReader.readLine()) != null){
                 String[] entryArray =entry.split("\t");
-                values[0] = dataset.attribute(0).addStringValue(stringCleaner.getCleanString(entryArray[3].replace("\"", "")));
-                values[1] = getAttributeValue(entryArray[2].replace("\"", ""));
+                String cleanString = stringCleaner.getCleanString(entryArray[3].replace("\"", ""));
+                for (String word: cleanString.split(" ")){
+                    values[0] = dataset.attribute(0).addStringValue(word);
+                    values[1] = getAttributeValue(entryArray[2].replace("\"", ""));
+                }
                 dataset.add(new DenseInstance(1.0, values));
                 values = new double[dataset.numAttributes()];
             }
