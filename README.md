@@ -13,6 +13,7 @@ Princejeet Singh Sandhu -
  **Run 5** - Our genereated arff file with tf-idf (more wight on rare words), stemming (IteratedLovinsStemmer) and stop word removal(From assignment 1).  
  
  ** For Run 1, had to use only 100 words for decision tree
+ ** Our stop word removal did not result in the same result as stop word removal in weka. We implemented our own algorithm to remove stop words.  
  
  **Need to report accuracy, confusion matrices, precision, recall and f-measures**
 
