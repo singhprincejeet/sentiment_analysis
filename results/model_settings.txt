@@ -1,0 +1,23 @@
+NaiveBayesModel_profs_arff_file
+	String to Word Vector
+		- idf transfer: true
+		- tf transfer: true
+		- lowercasetokens: true
+		- normalize all data
+		- outputWordCount: true
+		- stemmer: IteratedLovinsStemmer
+		- stopwordsHandler: Rainbow
+		- tokenizer: wordTokenizer
+NaiveBayesModel_generated_arff_file
+	- lower case words
+	- removed stop words 
+	- stemmed using Potter's stem words
+	String to Word Vector
+		- idf transfer: true
+		- tf transfer: true
+		- lowercasetokens: false
+		- normalize all data
+		- outputWordCount: true
+		- stemmer: NullStemmer
+		- stopwordsHandler: Null
+		- tokenizer: wordTokenizer
