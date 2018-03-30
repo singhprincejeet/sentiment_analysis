@@ -1,4 +1,16 @@
-Run3
+Run 1
+	- Prof's arff file used
+	String to Word Vector:
+		- all false
+		- 100 words used for decision tree classifier
+
+Run 2
+	- Our arff file used (with stemming and stop word removal)
+	String to Word Vector:
+		- all false
+		- 100 words used for decision tree classifier
+
+Run 3
 	String to Word Vector
 		- idf transfer: true
 		- tf transfer: true
@@ -8,7 +20,7 @@ Run3
 		- stemmer: IteratedLovinsStemmer
 		- stopwordsHandler: Rainbow
 		- tokenizer: wordTokenizer
-Run4
+Run 4
 	- lower case words
 	- removed stop words 
 	- stemmed using Potter's stem words
