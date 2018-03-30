@@ -1,4 +1,4 @@
-NaiveBayesModel_profs_arff_file
+Run3
 	String to Word Vector
 		- idf transfer: true
 		- tf transfer: true
@@ -8,7 +8,7 @@ NaiveBayesModel_profs_arff_file
 		- stemmer: IteratedLovinsStemmer
 		- stopwordsHandler: Rainbow
 		- tokenizer: wordTokenizer
-NaiveBayesModel_generated_arff_file
+Run4
 	- lower case words
 	- removed stop words 
 	- stemmed using Potter's stem words
