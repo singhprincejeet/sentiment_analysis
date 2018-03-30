@@ -10,7 +10,7 @@ import weka.core.Instances;
 
 public class ArrfCreator {
 
-    private static final String FILENAME = "../semeval_twitter_data.txt";
+    private static final String FILENAME = "assets/semeval_twitter_data.txt";
 
     public static void main(String[] args) {
         FileReader fileReader = null;
