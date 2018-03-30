@@ -10,6 +10,7 @@ import weka.core.Instances;
 public class ArrfCreator {
 
     private static final String FILENAME = "assets/semeval_twitter_data.txt";
+    private static final boolean CLASSIFY_EACH_WORD = false;
 
     public static void main(String[] args) {
         FileReader fileReader = null;
@@ -20,7 +21,6 @@ public class ArrfCreator {
         FileOutputStream fileOutputStream;
 
         ArrayList<Attribute> attributes = defineAttributes();
-
         StringCleaner stringCleaner = new StringCleaner();
 
         try{
@@ -35,8 +35,15 @@ public class ArrfCreator {
             while ((entry = bufferedReader.readLine()) != null){
                 String[] entryArray =entry.split("\t");
                 String cleanString = stringCleaner.getCleanString(entryArray[3].replace("\"", ""));
-                for (String word: cleanString.split(" ")){
-                    values[0] = dataset.attribute(0).addStringValue(word);
+                if (CLASSIFY_EACH_WORD) {
+                    for (String word : cleanString.split(" ")) {
+                        values[0] = dataset.attribute(0).addStringValue(word);
+                        values[1] = getAttributeValue(entryArray[2].replace("\"", ""));
+                        dataset.add(new DenseInstance(1.0, values));
+                        values = new double[dataset.numAttributes()];
+                    }
+                }else {
+                    values[0] = dataset.attribute(0).addStringValue(cleanString);
                     values[1] = getAttributeValue(entryArray[2].replace("\"", ""));
                     dataset.add(new DenseInstance(1.0, values));
                     values = new double[dataset.numAttributes()];
@@ -44,7 +51,11 @@ public class ArrfCreator {
             }
 
 
-            fileOutputStream = new FileOutputStream("out/semeval_twitter_data.arff");
+            if (CLASSIFY_EACH_WORD){
+                fileOutputStream = new FileOutputStream("out/semeval_twitter_data_words.arff");
+            }else {
+                fileOutputStream = new FileOutputStream("out/semeval_twitter_data_sentences.arff");
+            }
             fileOutputStream.write(dataset.toString().getBytes());
             fileOutputStream.close();
 
