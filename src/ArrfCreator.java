@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
-import weka.core.Instance;
 import weka.core.Instances;
 
 public class ArrfCreator {
@@ -22,6 +21,8 @@ public class ArrfCreator {
 
         ArrayList<Attribute> attributes = defineAttributes();
 
+        StringCleaner stringCleaner = new StringCleaner();
+
         try{
             fileReader = new FileReader(FILENAME);
             bufferedReader = new BufferedReader(fileReader);
@@ -33,7 +34,7 @@ public class ArrfCreator {
 
             while ((entry = bufferedReader.readLine()) != null){
                 String[] entryArray =entry.split("\t");
-                values[0] = dataset.attribute(0).addStringValue(entryArray[3].replace("\"", ""));
+                values[0] = dataset.attribute(0).addStringValue(stringCleaner.getCleanString(entryArray[3].replace("\"", "")));
                 values[1] = getAttributeValue(entryArray[2].replace("\"", ""));
                 dataset.add(new DenseInstance(1.0, values));
                 values = new double[dataset.numAttributes()];
