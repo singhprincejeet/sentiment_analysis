@@ -23,4 +23,6 @@ Princejeet Singh Sandhu -
 | Run 2         |               |               |               |
 
 ### Step 2
-- add extra features and note differences. TODO: features such as emoticons,  pos and neg words, punctuations
+- add extra features and note differences. TODO: features such as emoticons,  pos and neg words, punctuations  
+  
+ **Run 6** - Our genereated arff file with added attributes: Positive and negative word counts. Since we observed improvements with tf-idf (more wight on rare words), stemming (PorterStemmer) and stop word removal (From assignment 1), we also applied this to the new arff.  
