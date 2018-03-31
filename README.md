@@ -11,6 +11,7 @@ Princejeet Singh Sandhu -
  **Run 3** - Prof's file with tf-idf (more wight on rare words), stemming  (IteratedLovinsStemmer), stop word removal (Rainbow).  
  **Run 4** - Our genereated arff file with tf-idf (more wight on rare words), stemming (Porter's stemmer) and stop word removal(From assignment 1).  
  **Run 5** - Our genereated arff file with tf-idf (more wight on rare words), stemming (IteratedLovinsStemmer) and stop word removal(From assignment 1).  
+ **Run 6** - Our genereated arff file with Attribute Selection. (Check infogain of each word and use words that pass a certain threshold as features)  
  
  ** For Run 1, had to use only 100 words for decision tree  
  ** Our stop word removal did not result in the same result as stop word removal in weka. We implemented our own algorithm to remove stop words.  
@@ -25,6 +26,6 @@ Princejeet Singh Sandhu -
 ### Step 2
 - add extra features and note differences. TODO: features such as emoticons,  pos and neg words, punctuations  
   
- **Run 6** - Our genereated arff file with added attributes: Positive and negative word counts. Since we observed improvements with tf-idf (more wight on rare words), stemming (PorterStemmer) and stop word removal (From assignment 1), we also applied this to the new arff. *Also used lowercase on tokens as a part of normalization...*    
+ **Run 7** - Our genereated arff file with added attributes: Positive and negative word counts. Since we observed improvements with tf-idf (more wight on rare words), stemming (PorterStemmer) and stop word removal (From assignment 1), we also applied this to the new arff. *Also used lowercase on tokens as a part of normalization...*    
 
 - We noticed this did not improve results, in fact made it worse because the many positive words were often used in a negative context and vice-versa.  
