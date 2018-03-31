@@ -33,9 +33,9 @@ Run 4
 		- stemmer: NullStemmer
 		- stopwordsHandler: Null
 		- tokenizer: wordTokenizer
-Run5
+Run 5
 	- lower case words
-	- removed stop words 
+	- removed stop words
 	String to Word Vector
 		- idf transfer: true
 		- tf transfer: true
@@ -44,4 +44,45 @@ Run5
 		- outputWordCount: true
 		- stemmer: IteratedLovinsStemmer
 		- stopwordsHandler: Null
+		- tokenizer: wordTokenizer
+
+Run 7
+    String to Word Vector
+    		- idf transfer: false
+    		- tf transfer: false
+    		- lowercasetokens: false
+    		- normalize all data: false
+    		- outputWordCount: false
+    		- stemmer: IteratedLovinsStemmer
+    		- stopwordsHandler: Rainbow
+    		- tokenizer: wordTokenizer
+
+Run 8
+	- lower case words
+	- clean strings
+	- unstemmed
+	String to Word Vector
+		- idf transfer: true
+		- tf transfer: true
+		- lowercasetokens: false
+		- normalize all data
+		- outputWordCount: true
+		- stemmer: IteratedLovinsStemmer
+		- stopwordsHandler: Rainbow
+		- tokenizer: wordTokenizer
+
+
+Run 9
+	- lower case words
+	- clean strings
+	- unstemmed
+	- unstopped
+	String to Word Vector
+		- idf transfer: false
+    		- tf transfer: false
+    		- lowercasetokens: false
+    		- normalize all data: false
+    		- outputWordCount: false
+		- stemmer: IteratedLovinsStemmer
+		- stopwordsHandler: Rainbow
 		- tokenizer: wordTokenizer
