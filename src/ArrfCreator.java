@@ -44,14 +44,17 @@ public class ArrfCreator {
              */
             while ((entry = bufferedReader.readLine()) != null){
                 String[] entryArray =entry.split("\t");
-                values[0] = dataset.attribute(0).addStringValue(stringCleaner.getCleanString(entryArray[3].replace("\"", "")));
-                values[1] = getAttributeValue(entryArray[2].replace("\"", ""));
-                if(COUNT_POS_NEG){
-                    values[2] = swcounter.countPositiveWords(entryArray[3]);
-                    values[3] = swcounter.countNegativeWords(entryArray[3]);
+                String cleanString = stringCleaner.getCleanString(entryArray[3].replace("\"", ""));
+                if(!cleanString.isEmpty()) {
+                    values[0] = dataset.attribute(0).addStringValue(cleanString);
+                    values[1] = getAttributeValue(entryArray[2].replace("\"", ""));
+                    if (COUNT_POS_NEG) {
+                        values[2] = swcounter.countPositiveWords(entryArray[3]);
+                        values[3] = swcounter.countNegativeWords(entryArray[3]);
+                    }
+                    dataset.add(new DenseInstance(1.0, values));
+                    values = new double[dataset.numAttributes()];
                 }
-                dataset.add(new DenseInstance(1.0, values));
-                values = new double[dataset.numAttributes()];
             }
 
             String filename = "out/semeval_twitter_data";
