@@ -11,6 +11,7 @@ public class ArrfCreator {
 
     private static final String FILENAME = "assets/semeval_twitter_data.txt";
     public static final boolean USE_POTTER_STEMMER = true;
+    public static final boolean COUNT_POS_NEG = true;
 
     public static void main(String[] args) {
         FileReader fileReader = null;
@@ -23,6 +24,7 @@ public class ArrfCreator {
         ArrayList<Attribute> attributes = defineAttributes();
 
         StringCleaner stringCleaner = new StringCleaner();
+        SentimentWordCounter swcounter = new SentimentWordCounter();
 
         try{
             fileReader = new FileReader(FILENAME);
@@ -33,20 +35,33 @@ public class ArrfCreator {
             dataset = new Instances("opinion", attributes, 0);
             values = new double[dataset.numAttributes()];
 
+            /*
+            entryArray[0] = SID
+            entryArray[1] = UID
+            entryArray[2] = positive|negative|neutral|objective
+            entryArray[3] = TWITTER MESSAGE
+             */
             while ((entry = bufferedReader.readLine()) != null){
                 String[] entryArray =entry.split("\t");
                 values[0] = dataset.attribute(0).addStringValue(stringCleaner.getCleanString(entryArray[3].replace("\"", "")));
                 values[1] = getAttributeValue(entryArray[2].replace("\"", ""));
+                if(COUNT_POS_NEG){
+                    values[2] = swcounter.countPositiveWords(entryArray[3]);
+                    values[3] = swcounter.countNegativeWords(entryArray[3]);
+                }
                 dataset.add(new DenseInstance(1.0, values));
                 values = new double[dataset.numAttributes()];
             }
 
-
-            if(USE_POTTER_STEMMER){
-                fileOutputStream = new FileOutputStream("out/semeval_twitter_data.arff");
-            }else {
-                fileOutputStream = new FileOutputStream("out/semeval_twitter_data_unstemmed.arff");
+            String filename = "out/semeval_twitter_data";
+            if(!USE_POTTER_STEMMER){
+                filename += "_unstemmed";
             }
+            if(COUNT_POS_NEG){
+                filename += "_countposneg";
+            }
+
+            fileOutputStream = new FileOutputStream(filename + ".arff");
             fileOutputStream.write(dataset.toString().getBytes());
             fileOutputStream.close();
 
@@ -66,6 +81,11 @@ public class ArrfCreator {
         //attribute value type
         List categoryAttrValues = defineCategoryAttrValues();
         result.add(new Attribute("category", categoryAttrValues));
+
+        if(COUNT_POS_NEG){
+            result.add(new Attribute("positiveWordCount"));
+            result.add(new Attribute("negativeWordCount"));
+        }
         return result;
     }
 
