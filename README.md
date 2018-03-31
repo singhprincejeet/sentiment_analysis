@@ -25,4 +25,4 @@ Princejeet Singh Sandhu -
 ### Step 2
 - add extra features and note differences. TODO: features such as emoticons,  pos and neg words, punctuations  
   
- **Run 6** - Our genereated arff file with added attributes: Positive and negative word counts. Since we observed improvements with tf-idf (more wight on rare words), stemming (PorterStemmer) and stop word removal (From assignment 1), we also applied this to the new arff.  
+ **Run 6** - Our genereated arff file with added attributes: Positive and negative word counts. Since we observed improvements with tf-idf (more wight on rare words), stemming (PorterStemmer) and stop word removal (From assignment 1), we also applied this to the new arff. *Also used lowercase on tokens as a part of normalization...*    
