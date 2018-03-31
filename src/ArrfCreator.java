@@ -10,8 +10,9 @@ import weka.core.Instances;
 public class ArrfCreator {
 
     private static final String FILENAME = "assets/semeval_twitter_data.txt";
-    public static final boolean USE_POTTER_STEMMER = true;
-    public static final boolean COUNT_POS_NEG = true;
+    public static final boolean USE_POTTER_STEMMER = false;
+    public static final boolean USE_STOP_WORDS = false;
+    public static final boolean COUNT_POS_NEG = false;
 
     public static void main(String[] args) {
         FileReader fileReader = null;
@@ -56,6 +57,9 @@ public class ArrfCreator {
             String filename = "out/semeval_twitter_data";
             if(!USE_POTTER_STEMMER){
                 filename += "_unstemmed";
+            }
+            if(!USE_STOP_WORDS){
+                filename += "_unstopped";
             }
             if(COUNT_POS_NEG){
                 filename += "_countposneg";

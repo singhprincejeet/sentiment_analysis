@@ -1,4 +1,5 @@
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import weka.core.converters.ArffLoader;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -33,6 +34,9 @@ public class StopWords {
     }
 
     public boolean isStopWord(String word) {
+        if(!ArrfCreator.USE_STOP_WORDS){
+            return false;
+        }
         if (word.length()<2){
             return true;
         }
