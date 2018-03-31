@@ -33,6 +33,10 @@ public class StopWords {
     }
 
     public boolean isStopWord(String word) {
+        if (word.length()<2){
+            return true;
+        }
+
         return stopWords.contains(word);
     }
 }

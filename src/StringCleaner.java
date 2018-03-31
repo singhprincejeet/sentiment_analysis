@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class StringCleaner {
@@ -16,7 +15,9 @@ public class StringCleaner {
         String[] wordsArray = string.split(" ");
 
         for(String word: wordsArray){
+            word = removeNonLetterOrDigits(word);
             word = word.toLowerCase();
+
             if(!stopWords.isStopWord(word)){
                 if(ArrfCreator.USE_POTTER_STEMMER){
                     word = getStemWord(word);
@@ -24,8 +25,15 @@ public class StringCleaner {
                 words.add(word);
             }
         }
-
         return wordsAsString(words);
+    }
+
+    private String removeNonLetterOrDigits(String word) {
+        final StringBuilder builder = new StringBuilder();
+        for(final char c : word.toCharArray())
+            if(Character.isLetterOrDigit(c))
+                builder.append(c);
+        return builder.toString();
     }
 
     private String wordsAsString(List<String> words) {
