@@ -65,8 +65,8 @@ public class ArrfCreator {
                     }
 
                      if(COUNT_EMOTICONS){
-                        values[4] = efilter.countPositiveEmoticons(entryArray[3]);
-                        values[5] = efilter.countNegativeEmoticons(entryArray[3]);
+                        values[6] = efilter.countPositiveEmoticons(entryArray[3]);
+                        values[7] = efilter.countNegativeEmoticons(entryArray[3]);
                     }
                     dataset.add(new DenseInstance(1.0, values));
                     values = new double[dataset.numAttributes()];
