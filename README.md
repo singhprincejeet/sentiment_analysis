@@ -22,7 +22,7 @@ Princejeet Singh Sandhu -
  **Run 7** - Our genereated arff file with added attributes: Positive and negative word counts. Since we observed improvements with tf-idf (more wight on rare words), stemming (PorterStemmer) and stop word removal (From assignment 1), we also applied this to the new arff. *Also used lowercase on tokens as a part of normalization...*   
  **Run 8** - Same as above but removed many punctuation delimiters, i.e. kept emoticons and punctuation such as !! ??.  
  **Run 9** - Same as above, but did not use stemmer. Idea: maybe stemmer gets rid of elongated words that may be useful for classification.  
- **Run 10** - Same as above did not use stemmer or tf-idf. Idea:  Maybe too much weight is being put on unique words, but these words are not relevant for the sentiment of the document.  
+ **Run 10** - Same as above did not use stemmer or tf-idf (also no word count). Idea:  Maybe too much weight is being put on unique words, but these words are not relevant for the sentiment of the document.  
 
 - We noticed this did not improve results, in fact made it worse because the many positive words were often used in a negative context and vice-versa.  
   
@@ -46,3 +46,4 @@ Princejeet Singh Sandhu -
 
 - maybe stemming makes results worse because when words are elongated they are important to show emphasis of an emotion. Stemming cuts that out
 - Further improvements: put heavier weights on emoticon attributes. Also organize between positive and negative emoticons
+- better stop word removal
