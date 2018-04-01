@@ -25,7 +25,7 @@ Princejeet Singh Sandhu -
   
 ### Results / Discussion
 
- **Need to report accuracy, confusion matrices, precision, recall and f-measures**
+ **Need to report accuracy, confusion matrices, precision, recall and f-measures**  
  **Table 1 - Summary of Results (% Accuracy Only)**
 
 |               |      SVM      |       NB      |       DT      |
