@@ -19,7 +19,10 @@ Princejeet Singh Sandhu -
 ### Step 2
 - add extra features and note differences. TODO: features such as emoticons,  pos and neg words, punctuations  
   
- **Run 7** - Our genereated arff file with added attributes: Positive and negative word counts. Since we observed improvements with tf-idf (more wight on rare words), stemming (PorterStemmer) and stop word removal (From assignment 1), we also applied this to the new arff. *Also used lowercase on tokens as a part of normalization...*    
+ **Run 7** - Our genereated arff file with added attributes: Positive and negative word counts. Since we observed improvements with tf-idf (more wight on rare words), stemming (PorterStemmer) and stop word removal (From assignment 1), we also applied this to the new arff. *Also used lowercase on tokens as a part of normalization...*   
+ **Run 8** - Same as above but removed many punctuation delimiters, i.e. kept emoticons and punctuation such as !! ??.  
+ **Run 9** - Same as above, but did not use stemmer. Idea: maybe stemmer gets rid of elongated words that may be useful for classification.  
+ **Run 10** - Same as above did not use stemmer or tf-idf. Idea:  Maybe too much weight is being put on unique words, but these words are not relevant for the sentiment of the document.  
 
 - We noticed this did not improve results, in fact made it worse because the many positive words were often used in a negative context and vice-versa.  
   
@@ -37,4 +40,9 @@ Princejeet Singh Sandhu -
 | Run 5         |      50.3     |      34.5     |      45.0     |
 | Run 6         |               |               |               |
 | Run 7         |      51.0     |      31.3     |      46.2     |
+| Run 8         |               |               |               |
+| Run 9         |               |               |               |
+| Run 10        |               |               |               |
 
+- maybe stemming makes results worse because when words are elongated they are important to show emphasis of an emotion. Stemming cuts that out
+- 
