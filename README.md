@@ -52,4 +52,5 @@ Princejeet Singh Sandhu -
 - maybe stemming makes results worse because when words are elongated they are important to show emphasis of an emotion. Stemming cuts that out
 - Further improvements: put heavier weights on emoticon attributes. Also organize between positive and negative emoticons
 - better stop word removal
-- Seems like tf-idf has negative effect on accuracy for Naive Bayes classifier
+- Seems like tf-idf has negative effect on accuracy for Naive Bayes classifier  
+- Harder to find features that indicate if something is objective or neutral. Emoticons / punctuation only help classify if something is positive or negative  
