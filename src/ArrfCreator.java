@@ -14,6 +14,7 @@ public class ArrfCreator {
     public static final boolean USE_STOP_WORDS = true;
     public static final boolean COUNT_POS_NEG = true;
     public static final boolean CHECK_PUNCTUATION = true;
+    public static final boolean COUNT_EMOTICONS = true;
 
     public static void main(String[] args) {
         FileReader fileReader = null;
@@ -27,6 +28,7 @@ public class ArrfCreator {
 
         StringCleaner stringCleaner = new StringCleaner();
         SentimentWordCounter swcounter = new SentimentWordCounter();
+        EmoticonFilter efilter = new EmoticonFilter();
 
         try{
             fileReader = new FileReader(FILENAME);
@@ -62,6 +64,10 @@ public class ArrfCreator {
                         values[5] = getBooleanAttributeValue(entryArray[3].contains("!"));
                     }
 
+                     if(COUNT_EMOTICONS){
+                        values[4] = efilter.countPositiveEmoticons(entryArray[3]);
+                        values[5] = efilter.countNegativeEmoticons(entryArray[3]);
+                    }
                     dataset.add(new DenseInstance(1.0, values));
                     values = new double[dataset.numAttributes()];
                 }
@@ -79,6 +85,9 @@ public class ArrfCreator {
             }
             if(CHECK_PUNCTUATION){
                 filename += "_checkedPunctuation";
+            }
+            if(COUNT_EMOTICONS){
+                filename += "_countemoticons";
             }
 
             fileOutputStream = new FileOutputStream(filename + ".arff");
@@ -108,11 +117,14 @@ public class ArrfCreator {
         }
 
         if(CHECK_PUNCTUATION){
-
             List booleanAttrValues = defineBooleanAttrValues();
 
             result.add(new Attribute("questionMark", booleanAttrValues));
             result.add(new Attribute("exclamtionMark", booleanAttrValues));
+        }
+        if(COUNT_EMOTICONS){
+            result.add(new Attribute("positiveEmoticons"));
+            result.add(new Attribute("negativeEmoticons"));
         }
         return result;
     }
