@@ -25,7 +25,7 @@ Princejeet Singh Sandhu -
  **Run 10** - Same as above did not use stemmer or tf-idf (also no word count). Idea:  Maybe too much weight is being put on unique words, but these words are not relevant for the sentiment of the document.  
  **Run 11** - Added separate emoticon count features, otherwise same as run 9 (with tf-idf). Idea: rather than just keeping emoticons as part of tokens, i.e. as in the bag of words model, pre-classify the emoticons as either positive or negative emoticons, similar to how we counted positive and negative words.  
  **Run 12** - Removed punctuation again as we were doing before Run 8, so the emoticons will not show as features themselves, but this time we will have just the emoticon count as a feature. Otherwise same as Run 11.    
- **Run 13** - Same as run ??, but added features that check if there is "!" and "?" in the message.  
+ **Run 13** - Same as run 10, but added features that check if there is "!" and "?" in the message and no tf-idf.  
  **Run ..** - TODO: Give more weight to the added features that seem to have slightly improved the accuracy...  
  **Run ..** - TODO: Only relevant sentiment bearing words and emoticon counts. Maybe will not do because will make it harder to classify for objective and neutral.  
 
@@ -59,3 +59,4 @@ Princejeet Singh Sandhu -
 - Seems like tf-idf has negative effect on accuracy for Naive Bayes classifier  
 - Harder to find features that indicate if something is objective or neutral. Emoticons / punctuation only help classify if something is positive or negative  
 - When increasing term frequency, accuracies went down, this is because rare words were not accounted for.  
+- Some conclusions: 
