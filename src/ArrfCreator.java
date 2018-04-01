@@ -10,8 +10,10 @@ import weka.core.Instances;
 public class ArrfCreator {
 
     private static final String FILENAME = "assets/semeval_twitter_data.txt";
-    public static final boolean USE_POTTER_STEMMER = true;
+    public static final boolean USE_POTTER_STEMMER = false;
+    public static final boolean USE_STOP_WORDS = true;
     public static final boolean COUNT_POS_NEG = true;
+    public static final boolean CHECK_PUNCTUATION = true;
 
     public static void main(String[] args) {
         FileReader fileReader = null;
@@ -43,22 +45,40 @@ public class ArrfCreator {
              */
             while ((entry = bufferedReader.readLine()) != null){
                 String[] entryArray =entry.split("\t");
-                values[0] = dataset.attribute(0).addStringValue(stringCleaner.getCleanString(entryArray[3].replace("\"", "")));
-                values[1] = getAttributeValue(entryArray[2].replace("\"", ""));
-                if(COUNT_POS_NEG){
-                    values[2] = swcounter.countPositiveWords(entryArray[3]);
-                    values[3] = swcounter.countNegativeWords(entryArray[3]);
+                String cleanString = stringCleaner.getCleanString(entryArray[3].replace("\"", ""));
+
+                if(!cleanString.isEmpty()) {
+
+                    values[0] = dataset.attribute(0).addStringValue(cleanString);
+                    values[1] = getCategoryAttributeValue(entryArray[2].replace("\"", ""));
+
+                    if (COUNT_POS_NEG) {
+                        values[2] = swcounter.countPositiveWords(entryArray[3]);
+                        values[3] = swcounter.countNegativeWords(entryArray[3]);
+                    }
+
+                    if (CHECK_PUNCTUATION) {
+                        values[4] = getBooleanAttributeValue(entryArray[3].contains("?"));
+                        values[5] = getBooleanAttributeValue(entryArray[3].contains("!"));
+                    }
+
+                    dataset.add(new DenseInstance(1.0, values));
+                    values = new double[dataset.numAttributes()];
                 }
-                dataset.add(new DenseInstance(1.0, values));
-                values = new double[dataset.numAttributes()];
             }
 
             String filename = "out/semeval_twitter_data";
             if(!USE_POTTER_STEMMER){
                 filename += "_unstemmed";
             }
+            if(!USE_STOP_WORDS){
+                filename += "_unstopped";
+            }
             if(COUNT_POS_NEG){
                 filename += "_countposneg";
+            }
+            if(CHECK_PUNCTUATION){
+                filename += "_checkedPunctuation";
             }
 
             fileOutputStream = new FileOutputStream(filename + ".arff");
@@ -86,6 +106,14 @@ public class ArrfCreator {
             result.add(new Attribute("positiveWordCount"));
             result.add(new Attribute("negativeWordCount"));
         }
+
+        if(CHECK_PUNCTUATION){
+
+            List booleanAttrValues = defineBooleanAttrValues();
+
+            result.add(new Attribute("questionMark", booleanAttrValues));
+            result.add(new Attribute("exclamtionMark", booleanAttrValues));
+        }
         return result;
     }
 
@@ -98,7 +126,14 @@ public class ArrfCreator {
         return result;
     }
 
-    private static double getAttributeValue(String s) {
+    private static List defineBooleanAttrValues() {
+        List result = new ArrayList<String>();
+        result.add("y");
+        result.add("n");
+        return result;
+    }
+
+    private static double getCategoryAttributeValue(String s) {
         switch (s){
             case "positive":
                 return 0;
@@ -111,6 +146,12 @@ public class ArrfCreator {
             default:
                 return -1;
         }
+    }
+
+    private static double getBooleanAttributeValue(boolean check) {
+        if (check)
+            return 0;
+        return 1;
     }
 
 }
