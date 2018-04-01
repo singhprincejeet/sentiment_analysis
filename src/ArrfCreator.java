@@ -10,8 +10,9 @@ import weka.core.Instances;
 public class ArrfCreator {
 
     private static final String FILENAME = "assets/semeval_twitter_data.txt";
-    public static final boolean USE_POTTER_STEMMER = true;
+    public static final boolean USE_POTTER_STEMMER = false;
     public static final boolean COUNT_POS_NEG = true;
+    public static final boolean COUNT_EMOTICONS = true;
 
     public static void main(String[] args) {
         FileReader fileReader = null;
@@ -25,6 +26,7 @@ public class ArrfCreator {
 
         StringCleaner stringCleaner = new StringCleaner();
         SentimentWordCounter swcounter = new SentimentWordCounter();
+        EmoticonFilter efilter = new EmoticonFilter();
 
         try{
             fileReader = new FileReader(FILENAME);
@@ -49,6 +51,10 @@ public class ArrfCreator {
                     values[2] = swcounter.countPositiveWords(entryArray[3]);
                     values[3] = swcounter.countNegativeWords(entryArray[3]);
                 }
+                if(COUNT_EMOTICONS){
+                    values[4] = efilter.countPositiveEmoticons(entryArray[3]);
+                    values[5] = efilter.countNegativeEmoticons(entryArray[3]);
+                }
                 dataset.add(new DenseInstance(1.0, values));
                 values = new double[dataset.numAttributes()];
             }
@@ -59,6 +65,9 @@ public class ArrfCreator {
             }
             if(COUNT_POS_NEG){
                 filename += "_countposneg";
+            }
+            if(COUNT_EMOTICONS){
+                filename += "_countemoticons";
             }
 
             fileOutputStream = new FileOutputStream(filename + ".arff");
@@ -85,6 +94,11 @@ public class ArrfCreator {
         if(COUNT_POS_NEG){
             result.add(new Attribute("positiveWordCount"));
             result.add(new Attribute("negativeWordCount"));
+        }
+
+        if(COUNT_EMOTICONS){
+            result.add(new Attribute("positiveEmoticons"));
+            result.add(new Attribute("negativeEmoticons"));
         }
         return result;
     }
