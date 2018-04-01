@@ -1,7 +1,11 @@
 # CSI4107 Assignment 2 - Sentiment Analysis
 ### Authors
 Shanzay Amjad - 7394483  
-Princejeet Singh Sandhu - 
+Princejeet Singh Sandhu - 7736952  
+
+### Program Functionality
+
+The structure of this program contains the following:  
 
 ### Step 1
  - bag of words model (words as features). 
