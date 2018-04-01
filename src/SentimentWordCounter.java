@@ -26,7 +26,6 @@ public class SentimentWordCounter {
                     positiveWordsList.add(entry.toLowerCase().replaceAll("[^a-zA-Z]", ""));
                 }
             }
-            System.out.println(positiveWordsList);
 
             fileReader = new FileReader("assets/Negative.txt");
             bufferedReader = new BufferedReader(fileReader);
@@ -37,7 +36,6 @@ public class SentimentWordCounter {
                     negativeWordsList.add(entry.toLowerCase().replaceAll("[^a-zA-Z]", ""));
                 }
             }
-            System.out.println(negativeWordsList);
         }
         catch (Exception e){
             e.printStackTrace();
