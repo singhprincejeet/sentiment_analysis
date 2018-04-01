@@ -23,6 +23,7 @@ Princejeet Singh Sandhu -
  **Run 8** - Same as above but removed many punctuation delimiters, i.e. kept emoticons and punctuation such as !! ??.  
  **Run 9** - Same as above, but did not use stemmer. Idea: maybe stemmer gets rid of elongated words that may be useful for classification.  
  **Run 10** - Same as above did not use stemmer or tf-idf (also no word count). Idea:  Maybe too much weight is being put on unique words, but these words are not relevant for the sentiment of the document.  
+ **Run 11** - Added separate emoticon count features, otherwise same as run 9. Idea: rather than just keeping emoticons as part of tokens, i.e. as in the bag of words model, pre-classify the emoticons as either positive or negative emoticons, similar to how we counted positive and negative words.  
 
 - We noticed this did not improve results, in fact made it worse because the many positive words were often used in a negative context and vice-versa.  
   
@@ -40,7 +41,7 @@ Princejeet Singh Sandhu -
 | Run 5         |      50.3     |      34.5     |      45.0     |
 | Run 6         |               |               |               |
 | Run 7         |      51.0     |      31.3     |      46.2     |
-| Run 8         |      50.9     |               |               |
+| Run 8         |      50.9     |      32.5     |      47.0     |
 | Run 9         |      51.1     |      28.7     |               |
 | Run 10        |      50.9     |      41.3     |               |
 
