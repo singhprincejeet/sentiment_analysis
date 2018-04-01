@@ -47,7 +47,7 @@ Princejeet Singh Sandhu -
 | Run 8         |      50.9     |      32.5     |      47.0     |
 | Run 9         |      51.1     |      28.7     |      46.0     |
 | Run 10        |      50.9     |      41.3     |      46.2     |
-| Run 11        |      51.0     |      29.5     |               |
+| Run 11        |      51.0     |      29.5     |      46.3     |
 
 - maybe stemming makes results worse because when words are elongated they are important to show emphasis of an emotion. Stemming cuts that out
 - Further improvements: put heavier weights on emoticon attributes. Also organize between positive and negative emoticons
