@@ -33,6 +33,9 @@ public class StopWords {
     }
 
     public boolean isStopWord(String word) {
+        if(!ArrfCreator.USE_STOP_WORDS){
+            return false;
+        }
         return stopWords.contains(word);
     }
 }

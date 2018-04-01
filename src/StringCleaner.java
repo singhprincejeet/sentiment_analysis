@@ -1,6 +1,9 @@
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class StringCleaner {
 
@@ -16,16 +19,59 @@ public class StringCleaner {
         String[] wordsArray = string.split(" ");
 
         for(String word: wordsArray){
-            word = word.toLowerCase();
-            if(!stopWords.isStopWord(word)){
-                if(ArrfCreator.USE_POTTER_STEMMER){
-                    word = getStemWord(word);
+            if(!wordIsAUrlOrEmailOrHashtagOrReference(word)) {
+                word = word.toLowerCase();
+                if (!stopWords.isStopWord(word)) {
+                    if (ArrfCreator.USE_POTTER_STEMMER) {
+                        word = getStemWord(word);
+                    }
+                    words.add(word);
                 }
-                words.add(word);
             }
         }
 
+        if(words.isEmpty()){
+            return "";
+        }
+
         return wordsAsString(words);
+    }
+
+    private boolean wordIsAUrlOrEmailOrHashtagOrReference(String word) {
+        return wordIsAURL(word)
+                || wordIsAnEmail(word)
+                || wordIsHashtag(word)
+                || wordIsReference(word);
+    }
+
+    private boolean wordIsAURL(String word) {
+        try {
+            new URL(word).toURI();
+            return true;
+        }
+        catch (MalformedURLException e) {
+            return false;
+        } catch (URISyntaxException e) {
+            return true;
+        }
+    }
+
+    private boolean wordIsAnEmail(String word) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern emailPattern = Pattern.compile(emailRegex);
+        return emailPattern.matcher(word).matches();
+    }
+
+    private boolean wordIsHashtag(String word) {
+        return word.startsWith("#");
+    }
+
+    private boolean wordIsReference(String word) {
+        return word.startsWith("@");
     }
 
     private String wordsAsString(List<String> words) {
