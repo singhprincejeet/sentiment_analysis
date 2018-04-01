@@ -15,13 +15,6 @@ Princejeet Singh Sandhu -
  
  ** For Run 1, had to use only 100 words for decision tree  
  ** Our stop word removal did not result in the same result as stop word removal in weka. We implemented our own algorithm to remove stop words.  
- 
- **Need to report accuracy, confusion matrices, precision, recall and f-measures**
-
-|               |      SVM      |       NB      |       DT      |
-| ------------- | ------------- | ------------- | ------------- |
-| Run 1         |               |               |               |
-| Run 2         |               |               |               |
 
 ### Step 2
 - add extra features and note differences. TODO: features such as emoticons,  pos and neg words, punctuations  
@@ -29,3 +22,19 @@ Princejeet Singh Sandhu -
  **Run 7** - Our genereated arff file with added attributes: Positive and negative word counts. Since we observed improvements with tf-idf (more wight on rare words), stemming (PorterStemmer) and stop word removal (From assignment 1), we also applied this to the new arff. *Also used lowercase on tokens as a part of normalization...*    
 
 - We noticed this did not improve results, in fact made it worse because the many positive words were often used in a negative context and vice-versa.  
+  
+### Results / Discussion
+
+ **Need to report accuracy, confusion matrices, precision, recall and f-measures**
+ **Table 1 - Summary of Results (% Accuracy Only)**
+
+|               |      SVM      |       NB      |       DT      |
+| ------------- | ------------- | ------------- | ------------- |
+| Run 1         |      52.6     |      45.2     |      43.2     |
+| Run 2         |      50.3     |      45.5     |      45.7     |
+| Run 3         |               |      34.5     |      44.8     |
+| Run 4         |      50.3     |      34.5     |      45.0     |
+| Run 5         |      50.3     |      34.5     |      45.0     |
+| Run 6         |               |               |               |
+| Run 7         |      51.0     |      31.3     |      46.2     |
+
