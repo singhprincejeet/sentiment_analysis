@@ -26,6 +26,7 @@ Princejeet Singh Sandhu -
  **Run 11** - Added separate emoticon count features, otherwise same as run 9 (with tf-idf). Idea: rather than just keeping emoticons as part of tokens, i.e. as in the bag of words model, pre-classify the emoticons as either positive or negative emoticons, similar to how we counted positive and negative words.  
  **Run 12** - Removed punctuation again as we were doing before Run 8, so the emoticons will not show as features themselves, but this time we will have just the emoticon count as a feature. Otherwise same as Run 11.    
  **Run 13** - Same as run 10, but added features that check if there is "!" and "?" in the message and no tf-idf.  
+ **Run 14** - Same as above but with tf-idf.
  **Run ..** - TODO: Give more weight to the added features that seem to have slightly improved the accuracy...  
  **Run ..** - TODO: Only relevant sentiment bearing words and emoticon counts. Maybe will not do because will make it harder to classify for objective and neutral.  
 
@@ -49,7 +50,7 @@ Princejeet Singh Sandhu -
 | Run 9         |      51.1     |      28.7     |      46.0     |
 | Run 10        |      50.9     |      41.3     |      46.2     |
 | Run 11        |      51.0     |      29.5     |      46.3     |
-| Run 12        |      50.6     |      29.8     |               |
+| Run 12        |      50.6     |      29.8     |      46.8     |
 | Run 13        |               |               |               |
 | Run 14        |               |               |               |
 
