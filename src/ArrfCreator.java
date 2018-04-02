@@ -13,8 +13,10 @@ public class ArrfCreator {
     public static final boolean USE_POTTER_STEMMER = false;
     public static final boolean USE_STOP_WORDS = true;
     public static final boolean COUNT_POS_NEG = true;
+    public static final boolean BOOLEAN_POS_NEG = true;
     public static final boolean CHECK_PUNCTUATION = true;
     public static final boolean COUNT_EMOTICONS = true;
+    public static final boolean BOOLEAN_EMOTICONS = true;
 
     public static void main(String[] args) {
         FileReader fileReader = null;
@@ -28,7 +30,7 @@ public class ArrfCreator {
 
         StringCleaner stringCleaner = new StringCleaner();
         SentimentWordCounter swcounter = new SentimentWordCounter();
-        EmoticonFilter efilter = new EmoticonFilter();
+        EmoticonCounter efilter = new EmoticonCounter();
 
         try{
             fileReader = new FileReader(FILENAME);
@@ -50,23 +52,30 @@ public class ArrfCreator {
                 String cleanString = stringCleaner.getCleanString(entryArray[3].replace("\"", ""));
 
                 if(!cleanString.isEmpty()) {
+                    int count = 0;
 
-                    values[0] = dataset.attribute(0).addStringValue(cleanString);
-                    values[1] = getCategoryAttributeValue(entryArray[2].replace("\"", ""));
+                    values[count++] = dataset.attribute(0).addStringValue(cleanString);
+                    values[count++] = getCategoryAttributeValue(entryArray[2].replace("\"", ""));
 
                     if (COUNT_POS_NEG) {
-                        values[2] = swcounter.countPositiveWords(entryArray[3]);
-                        values[3] = swcounter.countNegativeWords(entryArray[3]);
+                        values[count++] = swcounter.countPositiveWords(entryArray[3]);
+                        values[count++] = swcounter.countNegativeWords(entryArray[3]);
                     }
-
+                    if (BOOLEAN_POS_NEG){
+                        values[count++] = getBooleanAttributeValue(swcounter.countPositiveWords(entryArray[3]) > 0);
+                        values[count++] = getBooleanAttributeValue(swcounter.countNegativeWords(entryArray[3]) > 0);
+                    }
                     if (CHECK_PUNCTUATION) {
-                        values[4] = getBooleanAttributeValue(entryArray[3].contains("?"));
-                        values[5] = getBooleanAttributeValue(entryArray[3].contains("!"));
+                        values[count++] = getBooleanAttributeValue(entryArray[3].contains("?"));
+                        values[count++] = getBooleanAttributeValue(entryArray[3].contains("!"));
                     }
-
-                     if(COUNT_EMOTICONS){
-                        values[6] = efilter.countPositiveEmoticons(entryArray[3]);
-                        values[7] = efilter.countNegativeEmoticons(entryArray[3]);
+                    if(COUNT_EMOTICONS){
+                        values[count++] = efilter.countPositiveEmoticons(entryArray[3]);
+                        values[count++] = efilter.countNegativeEmoticons(entryArray[3]);
+                    }
+                    if(BOOLEAN_EMOTICONS){
+                        values[count++] = getBooleanAttributeValue(efilter.countPositiveEmoticons(entryArray[3]) > 0);
+                        values[count++] = getBooleanAttributeValue(efilter.countNegativeEmoticons(entryArray[3]) > 0);
                     }
                     dataset.add(new DenseInstance(1.0, values));
                     values = new double[dataset.numAttributes()];
@@ -83,11 +92,17 @@ public class ArrfCreator {
             if(COUNT_POS_NEG){
                 filename += "_countposneg";
             }
+            if(BOOLEAN_POS_NEG){
+                filename += "_booleanposneg";
+            }
             if(CHECK_PUNCTUATION){
                 filename += "_checkedPunctuation";
             }
             if(COUNT_EMOTICONS){
                 filename += "_countemoticons";
+            }
+            if(BOOLEAN_EMOTICONS){
+                filename += "_booleanemoticons";
             }
 
             fileOutputStream = new FileOutputStream(filename + ".arff");
@@ -115,7 +130,11 @@ public class ArrfCreator {
             result.add(new Attribute("positiveWordCount"));
             result.add(new Attribute("negativeWordCount"));
         }
-
+        if(BOOLEAN_POS_NEG){
+            List booleanAttrValues = defineBooleanAttrValues();
+            result.add(new Attribute("positiveEmoticonBoolean", booleanAttrValues));
+            result.add(new Attribute("negativeEmoticonBoolean", booleanAttrValues));
+        }
         if(CHECK_PUNCTUATION){
             List booleanAttrValues = defineBooleanAttrValues();
 
@@ -126,6 +145,12 @@ public class ArrfCreator {
             result.add(new Attribute("positiveEmoticons"));
             result.add(new Attribute("negativeEmoticons"));
         }
+        if(BOOLEAN_EMOTICONS){
+            List booleanAttrValues = defineBooleanAttrValues();
+            result.add(new Attribute("positiveWordBoolean", booleanAttrValues));
+            result.add(new Attribute("negativeWordBoolean", booleanAttrValues));
+        }
+
         return result;
     }
 
