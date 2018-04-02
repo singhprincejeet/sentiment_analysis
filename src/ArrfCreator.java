@@ -14,6 +14,7 @@ public class ArrfCreator {
     public static final boolean USE_STOP_WORDS = true;
     public static final boolean COUNT_POS_NEG = true;
     public static final boolean CHECK_POS_NEG = true;
+    public static final boolean COUNT_PUNCTUATION = true;
     public static final boolean CHECK_PUNCTUATION = true;
     public static final boolean COUNT_EMOTICONS = true;
     public static final boolean CHECK_EMOTICONS = true;
@@ -31,6 +32,7 @@ public class ArrfCreator {
         StringCleaner stringCleaner = new StringCleaner();
         SentimentWordCounter swcounter = new SentimentWordCounter();
         EmoticonCounter efilter = new EmoticonCounter();
+        PunctuationCounter punctuationCounter = new PunctuationCounter();
 
         try{
             fileReader = new FileReader(FILENAME);
@@ -65,6 +67,10 @@ public class ArrfCreator {
                         values[count++] = getBooleanAttributeValue(swcounter.countPositiveWords(entryArray[3]) > 0);
                         values[count++] = getBooleanAttributeValue(swcounter.countNegativeWords(entryArray[3]) > 0);
                     }
+                    if (COUNT_PUNCTUATION) {
+                        values[count++] = punctuationCounter.punctuationCount(entryArray[3], '?');
+                        values[count++] = punctuationCounter.punctuationCount(entryArray[3], '!');
+                    }
                     if (CHECK_PUNCTUATION) {
                         values[count++] = getBooleanAttributeValue(entryArray[3].contains("?"));
                         values[count++] = getBooleanAttributeValue(entryArray[3].contains("!"));
@@ -93,7 +99,10 @@ public class ArrfCreator {
                 filename += "_countposneg";
             }
             if(CHECK_POS_NEG){
-                filename += "_booleanposneg";
+                filename += "_checkedposneg";
+            }
+            if(COUNT_PUNCTUATION){
+                filename += "_countPunctuation";
             }
             if(CHECK_PUNCTUATION){
                 filename += "_checkedPunctuation";
@@ -102,7 +111,7 @@ public class ArrfCreator {
                 filename += "_countemoticons";
             }
             if(CHECK_EMOTICONS){
-                filename += "_booleanemoticons";
+                filename += "_checkedemoticons";
             }
 
             fileOutputStream = new FileOutputStream(filename + ".arff");
@@ -132,14 +141,20 @@ public class ArrfCreator {
         }
         if(CHECK_POS_NEG){
             List booleanAttrValues = defineBooleanAttrValues();
-            result.add(new Attribute("positiveEmoticonBoolean", booleanAttrValues));
-            result.add(new Attribute("negativeEmoticonBoolean", booleanAttrValues));
+            result.add(new Attribute("checkPositiveEmoticon", booleanAttrValues));
+            result.add(new Attribute("checkNegativeEmoticon", booleanAttrValues));
+        }
+        if(COUNT_PUNCTUATION){
+            List booleanAttrValues = defineBooleanAttrValues();
+
+            result.add(new Attribute("questionMark"));
+            result.add(new Attribute("exclamtionMark"));
         }
         if(CHECK_PUNCTUATION){
             List booleanAttrValues = defineBooleanAttrValues();
 
-            result.add(new Attribute("questionMark", booleanAttrValues));
-            result.add(new Attribute("exclamtionMark", booleanAttrValues));
+            result.add(new Attribute("checkquestionMark", booleanAttrValues));
+            result.add(new Attribute("checkexclamtionMark", booleanAttrValues));
         }
         if(COUNT_EMOTICONS){
             result.add(new Attribute("positiveEmoticons"));
@@ -147,8 +162,8 @@ public class ArrfCreator {
         }
         if(CHECK_EMOTICONS){
             List booleanAttrValues = defineBooleanAttrValues();
-            result.add(new Attribute("positiveWordBoolean", booleanAttrValues));
-            result.add(new Attribute("negativeWordBoolean", booleanAttrValues));
+            result.add(new Attribute("checkPositiveWord", booleanAttrValues));
+            result.add(new Attribute("checkNegativeWord", booleanAttrValues));
         }
 
         return result;
