@@ -13,9 +13,9 @@ public class ArrfCreator {
     public static final boolean USE_PORTER_STEMMER = false;
     public static final boolean USE_STOP_WORDS = true;
     public static final boolean COUNT_POS_NEG = true;
-    public static final boolean CHECK_POS_NEG = true;
+    public static final boolean CHECK_POS_NEG = false;
     public static final boolean COUNT_PUNCTUATION = true;
-    public static final boolean CHECK_PUNCTUATION = true;
+    public static final boolean CHECK_PUNCTUATION = false;
     public static final boolean COUNT_EMOTICONS = true;
     public static final boolean CHECK_EMOTICONS = true;
     public static final boolean COUNT_ELONGATION = true;
@@ -97,40 +97,44 @@ public class ArrfCreator {
                 }
             }
 
-            String filename = "out/semeval_twitter_data";
+            StringBuilder fileNameSB = new StringBuilder();
+            fileNameSB.append("out/semeval_twitter_data");
             if(!USE_PORTER_STEMMER){
-                filename += "_unstemmed";
+                fileNameSB.append("_unStem");
             }
             if(!USE_STOP_WORDS){
-                filename += "_unstopped";
+                fileNameSB.append("_unStop");
             }
             if(COUNT_POS_NEG){
-                filename += "_countposneg";
+                fileNameSB.append("_cntPosNeg");
             }
             if(CHECK_POS_NEG){
-                filename += "_checkedposneg";
+                fileNameSB.append("_chkPosNeg");
             }
             if(COUNT_PUNCTUATION){
-                filename += "_countPunctuation";
+                fileNameSB.append("_cntPunc");
             }
             if(CHECK_PUNCTUATION){
-                filename += "_checkedPunctuation";
+                fileNameSB.append("_chkPunc");
             }
             if(COUNT_EMOTICONS){
-                filename += "_countemoticons";
+                fileNameSB.append("_cntEmot");
             }
             if(CHECK_EMOTICONS){
-                filename += "_checkedemoticons";
+                fileNameSB.append("_chkEmot");
             }
             if(COUNT_ELONGATION){
-                filename += "_countelongation";
+                fileNameSB.append("_countelongation");
             }
             if(CHECK_ELONGATION){
-                filename += "_checkedelongation";
+                fileNameSB.append("_checkedelongation");
             }
 
+            fileNameSB.append(".arff");
 
-            fileOutputStream = new FileOutputStream(filename + ".arff");
+            System.out.println("File saved as: " + fileNameSB.toString());
+
+            fileOutputStream = new FileOutputStream(fileNameSB.toString());
             fileOutputStream.write(dataset.toString().getBytes());
             fileOutputStream.close();
 
