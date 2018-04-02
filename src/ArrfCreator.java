@@ -10,13 +10,13 @@ import weka.core.Instances;
 public class ArrfCreator {
 
     private static final String FILENAME = "assets/semeval_twitter_data.txt";
-    public static final boolean USE_POTTER_STEMMER = false;
+    public static final boolean USE_PORTER_STEMMER = false;
     public static final boolean USE_STOP_WORDS = true;
     public static final boolean COUNT_POS_NEG = true;
-    public static final boolean BOOLEAN_POS_NEG = true;
+    public static final boolean CHECK_POS_NEG = true;
     public static final boolean CHECK_PUNCTUATION = true;
     public static final boolean COUNT_EMOTICONS = true;
-    public static final boolean BOOLEAN_EMOTICONS = true;
+    public static final boolean CHECK_EMOTICONS = true;
 
     public static void main(String[] args) {
         FileReader fileReader = null;
@@ -61,7 +61,7 @@ public class ArrfCreator {
                         values[count++] = swcounter.countPositiveWords(entryArray[3]);
                         values[count++] = swcounter.countNegativeWords(entryArray[3]);
                     }
-                    if (BOOLEAN_POS_NEG){
+                    if (CHECK_POS_NEG){
                         values[count++] = getBooleanAttributeValue(swcounter.countPositiveWords(entryArray[3]) > 0);
                         values[count++] = getBooleanAttributeValue(swcounter.countNegativeWords(entryArray[3]) > 0);
                     }
@@ -73,7 +73,7 @@ public class ArrfCreator {
                         values[count++] = efilter.countPositiveEmoticons(entryArray[3]);
                         values[count++] = efilter.countNegativeEmoticons(entryArray[3]);
                     }
-                    if(BOOLEAN_EMOTICONS){
+                    if(CHECK_EMOTICONS){
                         values[count++] = getBooleanAttributeValue(efilter.countPositiveEmoticons(entryArray[3]) > 0);
                         values[count++] = getBooleanAttributeValue(efilter.countNegativeEmoticons(entryArray[3]) > 0);
                     }
@@ -83,7 +83,7 @@ public class ArrfCreator {
             }
 
             String filename = "out/semeval_twitter_data";
-            if(!USE_POTTER_STEMMER){
+            if(!USE_PORTER_STEMMER){
                 filename += "_unstemmed";
             }
             if(!USE_STOP_WORDS){
@@ -92,7 +92,7 @@ public class ArrfCreator {
             if(COUNT_POS_NEG){
                 filename += "_countposneg";
             }
-            if(BOOLEAN_POS_NEG){
+            if(CHECK_POS_NEG){
                 filename += "_booleanposneg";
             }
             if(CHECK_PUNCTUATION){
@@ -101,7 +101,7 @@ public class ArrfCreator {
             if(COUNT_EMOTICONS){
                 filename += "_countemoticons";
             }
-            if(BOOLEAN_EMOTICONS){
+            if(CHECK_EMOTICONS){
                 filename += "_booleanemoticons";
             }
 
@@ -130,7 +130,7 @@ public class ArrfCreator {
             result.add(new Attribute("positiveWordCount"));
             result.add(new Attribute("negativeWordCount"));
         }
-        if(BOOLEAN_POS_NEG){
+        if(CHECK_POS_NEG){
             List booleanAttrValues = defineBooleanAttrValues();
             result.add(new Attribute("positiveEmoticonBoolean", booleanAttrValues));
             result.add(new Attribute("negativeEmoticonBoolean", booleanAttrValues));
@@ -145,7 +145,7 @@ public class ArrfCreator {
             result.add(new Attribute("positiveEmoticons"));
             result.add(new Attribute("negativeEmoticons"));
         }
-        if(BOOLEAN_EMOTICONS){
+        if(CHECK_EMOTICONS){
             List booleanAttrValues = defineBooleanAttrValues();
             result.add(new Attribute("positiveWordBoolean", booleanAttrValues));
             result.add(new Attribute("negativeWordBoolean", booleanAttrValues));
