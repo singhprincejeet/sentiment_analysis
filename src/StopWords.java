@@ -1,5 +1,3 @@
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -33,7 +31,7 @@ public class StopWords {
     }
 
     public boolean isStopWord(String word) {
-        if(!ArrfCreator.USE_STOP_WORDS){
+        if(!ArffCreator.USE_STOP_WORDS){
             return false;
         }
         return stopWords.contains(word);
