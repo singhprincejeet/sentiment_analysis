@@ -22,7 +22,7 @@ public class StringCleaner {
             if(!wordIsAUrlOrEmailOrHashtagOrReference(word)) {
                 word = word.toLowerCase();
                 if (!stopWords.isStopWord(word)) {
-                    if (ArrfCreator.USE_POTTER_STEMMER) {
+                    if (ArrfCreator.USE_PORTER_STEMMER) {
                         word = getStemWord(word);
                     }
                     words.add(word);

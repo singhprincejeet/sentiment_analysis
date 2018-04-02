@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class EmoticonFilter {
+public class EmoticonCounter {
 
-    public EmoticonFilter(){
+    public EmoticonCounter(){
     }
 
     private ArrayList<String> extractEmoticons(String text){
