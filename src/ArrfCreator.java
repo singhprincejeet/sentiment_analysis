@@ -18,6 +18,8 @@ public class ArrfCreator {
     public static final boolean CHECK_PUNCTUATION = true;
     public static final boolean COUNT_EMOTICONS = true;
     public static final boolean CHECK_EMOTICONS = true;
+    public static final boolean COUNT_ELONGATION = true;
+    public static final boolean CHECK_ELONGATION = true;
 
     public static void main(String[] args) {
         FileReader fileReader = null;
@@ -33,6 +35,7 @@ public class ArrfCreator {
         SentimentWordCounter swcounter = new SentimentWordCounter();
         EmoticonCounter efilter = new EmoticonCounter();
         PunctuationCounter punctuationCounter = new PunctuationCounter();
+        ElongationCounter elongCounter = new ElongationCounter();
 
         try{
             fileReader = new FileReader(FILENAME);
@@ -83,6 +86,12 @@ public class ArrfCreator {
                         values[count++] = getBooleanAttributeValue(efilter.countPositiveEmoticons(entryArray[3]) > 0);
                         values[count++] = getBooleanAttributeValue(efilter.countNegativeEmoticons(entryArray[3]) > 0);
                     }
+                    if(COUNT_ELONGATION){
+                        values[count++] = elongCounter.countElongation(entryArray[3]);
+                    }
+                    if(CHECK_ELONGATION){
+                        values[count++] = getBooleanAttributeValue(elongCounter.countElongation(entryArray[3]) > 0);
+                    }
                     dataset.add(new DenseInstance(1.0, values));
                     values = new double[dataset.numAttributes()];
                 }
@@ -113,6 +122,13 @@ public class ArrfCreator {
             if(CHECK_EMOTICONS){
                 filename += "_checkedemoticons";
             }
+            if(COUNT_ELONGATION){
+                filename += "_countelongation";
+            }
+            if(CHECK_ELONGATION){
+                filename += "_checkedelongation";
+            }
+
 
             fileOutputStream = new FileOutputStream(filename + ".arff");
             fileOutputStream.write(dataset.toString().getBytes());
@@ -164,6 +180,13 @@ public class ArrfCreator {
             List booleanAttrValues = defineBooleanAttrValues();
             result.add(new Attribute("checkPositiveWord", booleanAttrValues));
             result.add(new Attribute("checkNegativeWord", booleanAttrValues));
+        }
+        if(COUNT_ELONGATION){
+            result.add(new Attribute("elongationCount"));
+        }
+        if(CHECK_ELONGATION){
+            List booleanAttrValues = defineBooleanAttrValues();
+            result.add(new Attribute("checkElongation", booleanAttrValues));
         }
 
         return result;
