@@ -80,4 +80,5 @@ When developing new features to help train the classifiers, the following resour
 - Harder to find features that indicate if something is objective or neutral. Emoticons / punctuation only help classify if something is positive or negative  
 - When increasing term frequency, accuracies went down, this is because rare words were not accounted for.  
 - noticed that using counts and booleans together as features give best results.  
+- we stopped using tf-idf (caring for rare words) in the later runs because we noticed rare words are useful for describing a doucment, but not necessarily classifying it. Rare words may not give indication on the sentiment of a document.  
 - Some conclusions: 
