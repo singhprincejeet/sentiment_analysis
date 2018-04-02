@@ -79,4 +79,5 @@ When developing new features to help train the classifiers, the following resour
 - Seems like tf-idf has negative effect on accuracy for Naive Bayes classifier  
 - Harder to find features that indicate if something is objective or neutral. Emoticons / punctuation only help classify if something is positive or negative  
 - When increasing term frequency, accuracies went down, this is because rare words were not accounted for.  
+- noticed that using counts and booleans together as features give best results.  
 - Some conclusions: 
