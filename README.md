@@ -33,6 +33,7 @@ When developing new features to help train the classifiers, the following resour
 
 ### Step 2
 - add extra features and note differences. TODO: features such as emoticons,  pos and neg words, punctuations  
+- General methodolody: Add a new feature and test its effect on the accuracy. Include both count and check for the feature. Then check which yeilds the best result out of the four: just count, just check, both together or none (comparing from previous result).  
   
  **Run 7** - Our genereated arff file with added attributes: Positive and negative word counts. Since we observed improvements with tf-idf (more wight on rare words), stemming (PorterStemmer) and stop word removal (From assignment 1), we also applied this to the new arff. *Also used lowercase on tokens as a part of normalization...*   
  **Run 8** - Same as above but removed many punctuation delimiters, i.e. kept emoticons and punctuation such as !! ??.  
