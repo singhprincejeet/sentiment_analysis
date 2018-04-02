@@ -3,9 +3,20 @@
 Shanzay Amjad - 7394483  
 Princejeet Singh Sandhu - 7736952  
 
+### Division
+
+The work division was set out by discussing the possible runs and additional features that could be added to improve final results. Each student worked on creating new features and performing the runs on their machines. Github was used to work in collaboration.  
+
 ### Program Functionality
 
 The structure of this program contains the following:  
+
+### Resources 
+
+When developing new features to help train the classifiers, the following resources were used:  
+- Porter Stemmer
+- Christopher Potts' emoticon regex
+- General Inquirer Lexicon of pre-classified positive and negative words
 
 ### Step 1
  - bag of words model (words as features). 
@@ -60,7 +71,7 @@ The structure of this program contains the following:
 | Run 13        |               |               |               |
 | Run 14        |               |               |               |
 | Run 15        |      51.3     |      38.3     |               |
-| Run 16        |               |      39.3     |               |
+| Run 16        |      51.9     |      39.3     |               |
 
 - maybe stemming makes results worse because when words are elongated they are important to show emphasis of an emotion. Stemming cuts that out
 - Further improvements: put heavier weights on emoticon attributes. Also organize between positive and negative emoticons
