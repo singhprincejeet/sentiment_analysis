@@ -31,7 +31,8 @@ The structure of this program contains the following:
  **Run 12** - Removed punctuation again as we were doing before Run 8, so the emoticons will not show as features themselves, but this time we will have just the emoticon count as a feature. Otherwise same as Run 11.    
  **Run 13** - Same as run 10, but added features that check if there is "!" and "?" in the message and no tf-idf. This run did not include the emoticon counts feature.  
  **Run 14** - Same as above, no tf-idf, but including emoticon count feature.  
- **Run 15** - Same as run 14 above, but now instead of positive and negative word counts, only have boolean if there is a positive and negative word. This may help with classifying objective and neutral tweets.  
+ **Run 15** - Same as run 14 above, but now instead of positive and negative word counts and emoticon counts, only have booleans for these features. This may help with classifying objective and neutral tweets.  
+ **Run 16** - Same as above, but include both counts and booleans for positive and negative words and emoticons.  
  **Run ..** - TODO: Give more weight to the added features that seem to have slightly improved the accuracy...  
  **Run ..** - TODO: Only relevant sentiment bearing words and emoticon counts. Maybe will not do because will make it harder to classify for objective and neutral.  
 
