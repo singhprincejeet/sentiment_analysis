@@ -45,9 +45,10 @@ When developing new features to help train the classifiers, the following resour
  **Run 15** - Same as run 14 above, but now instead of positive and negative word counts and emoticon counts, only have booleans for these features. This may help with classifying objective and neutral tweets.  
  **Run 16** - Same as above, but include both counts and booleans for positive and negative words and emoticons.  
  **Run 17** - Same as above, but includes number of "?" and "!"  
- **Run 18** - Same as above, but add the following features: counts and checks on elongations.  
- **Run 19** - 
- **Run** - Same as 18, but no punctuation count.  
+ **Run 18** -  
+ **Run 19** -  
+ **Run 20** - Same as run 17, but add the following features: counts and checks on elongations. (All features counts and checks).  
+ **Run** - Same as 18, but no punctuation count.   
 
  **Run ..** - TODO: Only relevant sentiment bearing words and emoticon counts. Maybe will not do because will make it harder to classify for objective and neutral.  
 
