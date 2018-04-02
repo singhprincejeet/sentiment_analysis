@@ -44,6 +44,7 @@ When developing new features to help train the classifiers, the following resour
  **Run 14** - Same as above, no tf-idf, but including emoticon count feature.  
  **Run 15** - Same as run 14 above, but now instead of positive and negative word counts and emoticon counts, only have booleans for these features. This may help with classifying objective and neutral tweets.  
  **Run 16** - Same as above, but include both counts and booleans for positive and negative words and emoticons.  
+ **Run 17** - Same as above, but includes number of "?" and "!"
  **Run ..** - TODO: Give more weight to the added features that seem to have slightly improved the accuracy...  
  **Run ..** - TODO: Only relevant sentiment bearing words and emoticon counts. Maybe will not do because will make it harder to classify for objective and neutral.  
 
@@ -68,10 +69,11 @@ When developing new features to help train the classifiers, the following resour
 | Run 10        |      50.9     |      41.3     |      46.2     |
 | Run 11        |      51.0     |      29.5     |      46.3     |
 | Run 12        |      50.6     |      29.8     |      46.8     |
-| Run 13        |               |               |               |
-| Run 14        |               |               |               |
+| Run 13        |      50.3     |      49.1     |      48.2     |
+| Run 14        |      50.7     |      49.4     |      49.1     |
 | Run 15        |      51.3     |      38.3     |               |
 | Run 16        |      51.9     |      39.3     |               |
+| Run 17        |      51.0     |      48.0     |      48.5     |
 
 - maybe stemming makes results worse because when words are elongated they are important to show emphasis of an emotion. Stemming cuts that out
 - Further improvements: put heavier weights on emoticon attributes. Also organize between positive and negative emoticons
