@@ -7,9 +7,23 @@ Princejeet Singh Sandhu - 7736952
 
 The work division was set out by discussing the possible runs and additional features that could be added to improve final results. Each student worked on creating new features and performing the runs on their machines. Github was used to work in collaboration.  
 
-### Program Functionality
+### Program Structure & Functionality
 
-The structure of this program contains the following:  
+The program contains the following Java classes:
+
+Main
+- ArrfCreator
+
+Preprocessing
+- Stop Words
+- Stemmer
+- StringCleaner
+
+Features
+- SentimentWordCounter
+- PunctuationCounter
+- EmoticonCounter
+- ElongationCounter
 
 ### Resources 
 
@@ -17,6 +31,7 @@ When developing new features to help train the classifiers, the following resour
 - Porter Stemmer
 - Christopher Potts' emoticon regex
 - General Inquirer Lexicon of pre-classified positive and negative words
+- Stop word list as provided in Assignment 1  
 
 ### Step 1
  - bag of words model (words as features). 
@@ -92,4 +107,5 @@ When developing new features to help train the classifiers, the following resour
 - noticed that using counts and booleans together as features give best results.  
 - we stopped using tf-idf (caring for rare words) in the later runs because we noticed rare words are useful for describing a doucment, but not necessarily classifying it. Rare words may not give indication on the sentiment of a document.  
 - keeping punctutation helps classify (because of emoticons , !s, ?s)
+- Future improvements: adding features from the other lexicons that look at word polarity, other resources as features  
 - Some conclusions: 
