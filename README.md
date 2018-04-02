@@ -81,7 +81,7 @@ When developing new features to help train the classifiers, the following resour
 | Run 17        |      51.0     |      48.0     |      48.5     |
 | Run 18        |               |               |               |
 | Run 19        |               |               |               |
-| Run 20        |      51.5     |      42.7     |               |  
+| Run 20        |      51.5     |      42.7     |      47.3     |  
 
 - maybe stemming makes results worse because when words are elongated they are important to show emphasis of an emotion. Stemming cuts that out
 - Further improvements: put heavier weights on emoticon attributes. Also organize between positive and negative emoticons
