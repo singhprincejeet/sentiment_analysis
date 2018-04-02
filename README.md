@@ -48,7 +48,7 @@ When developing new features to help train the classifiers, the following resour
  **Run 18** -  
  **Run 19** -  
  **Run 20** - Same as run 17, but add the following features: counts and checks on elongations. (All features counts and checks).  
- **Run** - Same as 18, but no punctuation count.   
+ **Run** - Same as 20, but no punctuation count.   
 
  **Run ..** - TODO: Only relevant sentiment bearing words and emoticon counts. Maybe will not do because will make it harder to classify for objective and neutral.  
 
