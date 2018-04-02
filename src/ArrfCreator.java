@@ -12,13 +12,15 @@ public class ArrfCreator {
     private static final String FILENAME = "assets/semeval_twitter_data.txt";
     public static final boolean USE_PORTER_STEMMER = false;
     public static final boolean USE_STOP_WORDS = true;
+
+    //Added features
     public static final boolean COUNT_POS_NEG = true;
-    public static final boolean CHECK_POS_NEG = false;
-    public static final boolean COUNT_PUNCTUATION = true;
-    public static final boolean CHECK_PUNCTUATION = false;
-    public static final boolean COUNT_EMOTICONS = true;
+    public static final boolean CHECK_POS_NEG = true;
+    public static final boolean COUNT_PUNCTUATION = false;
+    public static final boolean CHECK_PUNCTUATION = true;
+    public static final boolean COUNT_EMOTICONS = false;
     public static final boolean CHECK_EMOTICONS = true;
-    public static final boolean COUNT_ELONGATION = true;
+    public static final boolean COUNT_ELONGATION = false;
     public static final boolean CHECK_ELONGATION = true;
 
     public static void main(String[] args) {
