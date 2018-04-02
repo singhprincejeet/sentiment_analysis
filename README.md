@@ -25,8 +25,7 @@ When developing new features to help train the classifiers, the following resour
  **Run 2** - Our generated arff file with stemming (Porter's) and stop word removal (From Assignment 1).  
  **Run 3** - Prof's file with tf-idf (more wight on rare words), stemming  (IteratedLovinsStemmer), stop word removal (Rainbow).  
  **Run 4** - Our genereated arff file with tf-idf (more wight on rare words), stemming (Porter's stemmer) and stop word removal(From assignment 1).  
- **Run 5** - Our genereated arff file with tf-idf (more wight on rare words), stemming (IteratedLovinsStemmer) and stop word removal(From assignment 1).  
- **Run 6** - Our genereated arff file with Attribute Selection. (Check infogain of each word and use words that pass a certain threshold as features)  
+ **Run 5** - Our genereated arff file with tf-idf (more wight on rare words), stemming (IteratedLovinsStemmer) and stop word removal(From assignment 1).    
  
  ** For Run 1, had to use only 100 words for decision tree  
  ** Our stop word removal did not result in the same result as stop word removal in weka. We implemented our own algorithm to remove stop words.  
@@ -44,7 +43,9 @@ When developing new features to help train the classifiers, the following resour
  **Run 14** - Same as above, no tf-idf, but including emoticon count feature.  
  **Run 15** - Same as run 14 above, but now instead of positive and negative word counts and emoticon counts, only have booleans for these features. This may help with classifying objective and neutral tweets.  
  **Run 16** - Same as above, but include both counts and booleans for positive and negative words and emoticons.  
- **Run 17** - Same as above, but includes number of "?" and "!"  
+ **Run 17** - Same as above, but includes number of "?" and "!"
+ **Run 18** - Same as above, but only checks of a feature(except elongation) is present doesn't count them
+ **Run 19** - Same as above, but only counts number of times a feature(except elongation) is present doesn't check for them  
  **Run ..** - TODO: Give more weight to the added features that seem to have slightly improved the accuracy...  
  **Run ..** - TODO: Only relevant sentiment bearing words and emoticon counts. Maybe will not do because will make it harder to classify for objective and neutral.  
 
@@ -62,7 +63,6 @@ When developing new features to help train the classifiers, the following resour
 | Run 3         |               |      34.5     |      44.8     |
 | Run 4         |      50.3     |      34.5     |      45.0     |
 | Run 5         |      50.3     |      34.5     |      45.0     |
-| Run 6         |               |               |               |
 | Run 7         |      51.0     |      31.3     |      46.2     |
 | Run 8         |      50.9     |      32.5     |      47.0     |
 | Run 9         |      51.1     |      28.7     |      46.0     |
@@ -74,6 +74,8 @@ When developing new features to help train the classifiers, the following resour
 | Run 15        |      51.3     |      38.3     |      47.5     |
 | Run 16        |      51.9     |      39.3     |               |
 | Run 17        |      51.0     |      48.0     |      48.5     |
+| Run 18        |      51.0     |      48.1     |      48.6     |
+| Run 19        |      51.0     |      48.1     |      48.6     |
 
 - maybe stemming makes results worse because when words are elongated they are important to show emphasis of an emotion. Stemming cuts that out
 - Further improvements: put heavier weights on emoticon attributes. Also organize between positive and negative emoticons
