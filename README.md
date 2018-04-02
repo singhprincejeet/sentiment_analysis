@@ -59,6 +59,8 @@ The structure of this program contains the following:
 | Run 12        |      50.6     |      29.8     |      46.8     |
 | Run 13        |               |               |               |
 | Run 14        |               |               |               |
+| Run 15        |      51.3     |      38.3     |               |
+| Run 16        |               |      39.3     |               |
 
 - maybe stemming makes results worse because when words are elongated they are important to show emphasis of an emotion. Stemming cuts that out
 - Further improvements: put heavier weights on emoticon attributes. Also organize between positive and negative emoticons
