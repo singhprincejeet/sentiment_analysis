@@ -71,7 +71,7 @@ When developing new features to help train the classifiers, the following resour
 | Run 12        |      50.6     |      29.8     |      46.8     |
 | Run 13        |      50.3     |      49.1     |      48.2     |
 | Run 14        |      50.7     |      49.4     |      49.1     |
-| Run 15        |      51.3     |      38.3     |               |
+| Run 15        |      51.3     |      38.3     |      47.5     |
 | Run 16        |      51.9     |      39.3     |               |
 | Run 17        |      51.0     |      48.0     |      48.5     |
 
