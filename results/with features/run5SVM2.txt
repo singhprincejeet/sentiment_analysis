@@ -1,0 +1,730 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007" -calibrator "weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4"
+Relation:     opinion-weka.filters.unsupervised.attribute.StringToWordVector-R1-W100-prune-rate-1.0-N0-stemmerweka.core.stemmers.NullStemmer-stopwords-handlerweka.core.stopwords.WordsFromFile -stopwords "C:\\Users\\Princejeet Singh San\\Google Drive\\school notes\\CSI 4107\\assignments\\A02_2018\\Sentiment-Analysis\\assets\\StopWords.txt"-M1-tokenizerweka.core.tokenizers.WordTokenizer -delimiters " \r \t."-weka.filters.unsupervised.attribute.Reorder-R2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,1
+Instances:    7225
+Attributes:   105
+              [list of attributes omitted]
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: positive, negative
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.0004 * (normalized) elongationCount
+ +      -0.0003 * (normalized) !
+ +       0      * (normalized) &
+ +       0.0002 * (normalized) ,
+ +      -0.0001 * (normalized) -
+ +      -0.0002 * (normalized) 1
+ +       0.0001 * (normalized) 1st
+ +      -0.0001 * (normalized) 2
+ +      -0.0003 * (normalized) 2012
+ +      -0.0002 * (normalized) 2nd
+ +      -0.0001 * (normalized) 3
+ +       0.0001 * (normalized) 3rd
+ +      -0.0002 * (normalized) 4
+ +      -0.0003 * (normalized) 4th
+ +       0.0002 * (normalized) 5
+ +       0.0006 * (normalized) 7
+ +      -0.001  * (normalized) :)
+ +      -0.0003 * (normalized) back
+ +      -0.0006 * (normalized) big
+ +      -0.0001 * (normalized) birthday
+ +      -0.0001 * (normalized) black
+ +      -0.0002 * (normalized) can't
+ +       0.0001 * (normalized) check
+ +       0.0001 * (normalized) city
+ +      -0.0003 * (normalized) club
+ +      -0.0004 * (normalized) coming
+ +      -0.0004 * (normalized) concert
+ +       0.0007 * (normalized) don't
+ +      -0.0007 * (normalized) excited
+ +       0.0004 * (normalized) football
+ +      -0.0007 * (normalized) free
+ +      -0.0002 * (normalized) friday
+ +       0      * (normalized) game
+ +      -0.0001 * (normalized) gonna
+ +      -0.0002 * (normalized) happy
+ +      -0.0002 * (normalized) he's
+ +       0      * (normalized) home
+ +      -0.0005 * (normalized) hope
+ +      -0.0003 * (normalized) house
+ +      -0.0003 * (normalized) i'll
+ +      -0.0002 * (normalized) i'm
+ +       0.0001 * (normalized) i've
+ +      -0.0001 * (normalized) it's
+ +       0.0001 * (normalized) knicks
+ +       0.0003 * (normalized) know
+ +      -0.0004 * (normalized) league
+ +      -0.0003 * (normalized) life
+ +      -0.0004 * (normalized) live
+ +      -0.0005 * (normalized) lol
+ +      -0.0002 * (normalized) looking
+ +      -0.0005 * (normalized) love
+ +      -0.0001 * (normalized) man
+ +       0.0002 * (normalized) march
+ +      -0.001  * (normalized) meet
+ +      -0.0001 * (normalized) monday
+ +      -0.0001 * (normalized) morning
+ +      -0.0002 * (normalized) movie
+ +       0      * (normalized) news
+ +      -0.0002 * (normalized) night
+ +      -0.0003 * (normalized) nov
+ +      -0.0005 * (normalized) november
+ +      -0.0002 * (normalized) oct
+ +      -0.0007 * (normalized) october
+ +      -0.0002 * (normalized) oh
+ +      -0.0007 * (normalized) open
+ +      -0.0005 * (normalized) party
+ +       0.001  * (normalized) people
+ +      -0.0003 * (normalized) pic
+ +      -0.0002 * (normalized) play
+ +      -0.0001 * (normalized) playing
+ +       0      * (normalized) real
+ +      -0.0002 * (normalized) right
+ +      -0.0001 * (normalized) rt
+ +       0.0003 * (normalized) sat
+ +      -0.0002 * (normalized) saturday
+ +       1.999  * (normalized) says
+ +      -0      * (normalized) school
+ +      -0.0002 * (normalized) season
+ +      -0.0008 * (normalized) start
+ +      -0.0007 * (normalized) state
+ +      -0.0004 * (normalized) sun
+ +       0      * (normalized) sunday
+ +      -0.0006 * (normalized) super
+ +      -0.0001 * (normalized) team
+ +      -0.0009 * (normalized) thanks
+ +      -0.0001 * (normalized) that's
+ +       0.0001 * (normalized) think
+ +       0.0001 * (normalized) thursday
+ +      -0.0002 * (normalized) tickets
+ +      -0.0002 * (normalized) today
+ +      -0      * (normalized) tomorrow
+ +      -0.0009 * (normalized) tomorrow!
+ +      -0.0001 * (normalized) tonight
+ +      -0.0001 * (normalized) tuesday
+ +      -0.0003 * (normalized) tv
+ +       0.0001 * (normalized) twitter
+ +      -0.0004 * (normalized) wait
+ +      -0.0001 * (normalized) watch
+ +      -0.0002 * (normalized) watching
+ +       0.0001 * (normalized) wednesday
+ +      -0.0008 * (normalized) weekend
+ +      -0      * (normalized) win
+ +      -0      * (normalized) work
+ +       0.0001 * (normalized) world
+ -       0.9995
+
+Number of kernel evaluations: 7953356 (48.676% cached)
+
+Classifier for classes: positive, neutral
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.0001 * (normalized) elongationCount
+ +      -0.0004 * (normalized) !
+ +      -0.0002 * (normalized) &
+ +       0.0002 * (normalized) ,
+ +      -0.0001 * (normalized) -
+ +       0.0007 * (normalized) 1
+ +      -0.0002 * (normalized) 1st
+ +      -0.0003 * (normalized) 2
+ +       1.9978 * (normalized) 2012
+ +      -0.0003 * (normalized) 2nd
+ +       0.0005 * (normalized) 3
+ +      -0.0002 * (normalized) 3rd
+ +      -0.0001 * (normalized) 4
+ +      -0.0003 * (normalized) 4th
+ +      -0.0002 * (normalized) 5
+ +       1.9985 * (normalized) 7
+ +      -0.0008 * (normalized) :)
+ +       0.0003 * (normalized) back
+ +      -0.0002 * (normalized) big
+ +      -0.0005 * (normalized) birthday
+ +       0.0001 * (normalized) black
+ +      -0.0002 * (normalized) can't
+ +      -0.0002 * (normalized) check
+ +       0.0007 * (normalized) city
+ +       0.0002 * (normalized) club
+ +      -0.0003 * (normalized) coming
+ +      -0.0004 * (normalized) concert
+ +      -0.0006 * (normalized) don't
+ +      -0.0008 * (normalized) excited
+ +       0.0002 * (normalized) football
+ +      -0.0003 * (normalized) free
+ +      -0.0001 * (normalized) friday
+ +       0.0004 * (normalized) game
+ +      -0.0001 * (normalized) gonna
+ +      -0.0007 * (normalized) happy
+ +      -0.0002 * (normalized) he's
+ +      -0.0001 * (normalized) home
+ +      -0.0003 * (normalized) hope
+ +       0.0001 * (normalized) house
+ +       0      * (normalized) i'll
+ +      -0.0003 * (normalized) i'm
+ +      -0.0005 * (normalized) i've
+ +      -0      * (normalized) it's
+ +      -0.0004 * (normalized) knicks
+ +       0.0005 * (normalized) know
+ +       0.0002 * (normalized) league
+ +      -0.0002 * (normalized) life
+ +       0      * (normalized) live
+ +      -0.0002 * (normalized) lol
+ +      -0.0008 * (normalized) looking
+ +      -0.001  * (normalized) love
+ +      -0.0005 * (normalized) man
+ +      -0.0006 * (normalized) march
+ +      -0.0007 * (normalized) meet
+ +       0.0005 * (normalized) monday
+ +      -0.0001 * (normalized) morning
+ +       0      * (normalized) movie
+ +      -0      * (normalized) news
+ +      -0.0001 * (normalized) night
+ +       0.0018 * (normalized) nov
+ +      -0.0003 * (normalized) november
+ +      -0.0002 * (normalized) oct
+ +       0.0001 * (normalized) october
+ +      -0.0011 * (normalized) oh
+ +      -0.0004 * (normalized) open
+ +       0.0003 * (normalized) party
+ +      -0.0004 * (normalized) people
+ +       0.0005 * (normalized) pic
+ +       0.0001 * (normalized) play
+ +       0      * (normalized) playing
+ +      -0.0006 * (normalized) real
+ +       0.0001 * (normalized) right
+ +       0.0005 * (normalized) rt
+ +       0.0001 * (normalized) sat
+ +      -0.0001 * (normalized) saturday
+ +       1.9969 * (normalized) says
+ +      -0.0009 * (normalized) school
+ +      -0.0004 * (normalized) season
+ +      -0.0006 * (normalized) start
+ +       0.0001 * (normalized) state
+ +      -0.0003 * (normalized) sun
+ +       0.0002 * (normalized) sunday
+ +      -0.0007 * (normalized) super
+ +      -0.0005 * (normalized) team
+ +      -0.0004 * (normalized) thanks
+ +      -0.0002 * (normalized) that's
+ +       0.0004 * (normalized) think
+ +      -0.0001 * (normalized) thursday
+ +      -0.0002 * (normalized) tickets
+ +      -0.0002 * (normalized) today
+ +       0.0001 * (normalized) tomorrow
+ +      -0.0004 * (normalized) tomorrow!
+ +      -0.0002 * (normalized) tonight
+ +      -0      * (normalized) tuesday
+ +       0      * (normalized) tv
+ +      -0.0001 * (normalized) twitter
+ +      -0.0005 * (normalized) wait
+ +      -0.0002 * (normalized) watch
+ +      -0.0004 * (normalized) watching
+ +       0.0006 * (normalized) wednesday
+ +       0.0002 * (normalized) weekend
+ +      -0.0006 * (normalized) win
+ +      -0.0005 * (normalized) work
+ +      -0.0004 * (normalized) world
+ -       0.9997
+
+Number of kernel evaluations: 12042478 (50.971% cached)
+
+Classifier for classes: positive, objective
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.0001 * (normalized) elongationCount
+ +      -0.146  * (normalized) !
+ +       0.0002 * (normalized) &
+ +      -0.0003 * (normalized) ,
+ +       0.1475 * (normalized) -
+ +      -0.0006 * (normalized) 1
+ +      -0.0003 * (normalized) 1st
+ +      -0.0006 * (normalized) 2
+ +       0.2995 * (normalized) 2012
+ +      -0.0001 * (normalized) 2nd
+ +       0.0013 * (normalized) 3
+ +       0.0002 * (normalized) 3rd
+ +       0.0003 * (normalized) 4
+ +      -0.0001 * (normalized) 4th
+ +      -0.0009 * (normalized) 5
+ +       1.7025 * (normalized) 7
+ +      -1.5383 * (normalized) :)
+ +      -0.0003 * (normalized) back
+ +      -0.0006 * (normalized) big
+ +      -0.1471 * (normalized) birthday
+ +       0.0128 * (normalized) black
+ +      -1.4068 * (normalized) can't
+ +       0.4602 * (normalized) check
+ +      -0.0008 * (normalized) city
+ +       0.1494 * (normalized) club
+ +      -0.0006 * (normalized) coming
+ +      -0.1471 * (normalized) concert
+ +      -0.2968 * (normalized) don't
+ +      -1.2341 * (normalized) excited
+ +       0.0006 * (normalized) football
+ +      -0.0002 * (normalized) free
+ +      -0.0001 * (normalized) friday
+ +      -0      * (normalized) game
+ +      -0.0011 * (normalized) gonna
+ +      -1      * (normalized) happy
+ +      -0.0066 * (normalized) he's
+ +      -0.0005 * (normalized) home
+ +      -0.1501 * (normalized) hope
+ +      -0.0001 * (normalized) house
+ +      -0.0002 * (normalized) i'll
+ +       0.0001 * (normalized) i'm
+ +      -0.0005 * (normalized) i've
+ +      -0.001  * (normalized) it's
+ +       0      * (normalized) knicks
+ +      -0.0003 * (normalized) know
+ +       0.0003 * (normalized) league
+ +      -0.0002 * (normalized) life
+ +       0.1499 * (normalized) live
+ +      -0.0021 * (normalized) lol
+ +      -0.0028 * (normalized) looking
+ +      -0.1587 * (normalized) love
+ +      -0      * (normalized) man
+ +      -0.0003 * (normalized) march
+ +       0.0084 * (normalized) meet
+ +      -0.0002 * (normalized) monday
+ +      -0.0006 * (normalized) morning
+ +       0.0001 * (normalized) movie
+ +       0.0002 * (normalized) news
+ +      -0.0001 * (normalized) night
+ +       1.7012 * (normalized) nov
+ +       0      * (normalized) november
+ +       0.313  * (normalized) oct
+ +       1.5398 * (normalized) october
+ +      -0.1486 * (normalized) oh
+ +       0.0006 * (normalized) open
+ +      -0.0003 * (normalized) party
+ +      -0.0013 * (normalized) people
+ +      -0.0002 * (normalized) pic
+ +       0.0014 * (normalized) play
+ +       0.0002 * (normalized) playing
+ +      -0.0003 * (normalized) real
+ +       0.0002 * (normalized) right
+ +       0      * (normalized) rt
+ +      -0.0003 * (normalized) sat
+ +       0.0002 * (normalized) saturday
+ +       0.0049 * (normalized) says
+ +      -0.0002 * (normalized) school
+ +       0.0001 * (normalized) season
+ +      -0.0001 * (normalized) start
+ +      -0.0001 * (normalized) state
+ +       0.0004 * (normalized) sun
+ +      -0.0003 * (normalized) sunday
+ +      -0.0003 * (normalized) super
+ +      -0.0002 * (normalized) team
+ +      -1      * (normalized) thanks
+ +      -0.0009 * (normalized) that's
+ +      -0.0007 * (normalized) think
+ +       0.0001 * (normalized) thursday
+ +       0.1471 * (normalized) tickets
+ +      -0.0002 * (normalized) today
+ +      -0.0004 * (normalized) tomorrow
+ +      -0.0003 * (normalized) tomorrow!
+ +      -0.0007 * (normalized) tonight
+ +      -0.0001 * (normalized) tuesday
+ +      -0.0001 * (normalized) tv
+ +      -0.0006 * (normalized) twitter
+ +      -0.1485 * (normalized) wait
+ +      -0      * (normalized) watch
+ +      -0.0012 * (normalized) watching
+ +      -0.0007 * (normalized) wednesday
+ +      -0      * (normalized) weekend
+ +      -0.0006 * (normalized) win
+ +      -0.0002 * (normalized) work
+ +      -0.0001 * (normalized) world
+ -       0.9995
+
+Number of kernel evaluations: 18470075 (72.88% cached)
+
+Classifier for classes: negative, neutral
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.0004 * (normalized) elongationCount
+ +      -0.0113 * (normalized) !
+ +      -0.0003 * (normalized) &
+ +      -0.0009 * (normalized) ,
+ +       0.0014 * (normalized) -
+ +       0.001  * (normalized) 1
+ +      -0.0033 * (normalized) 1st
+ +       0.0009 * (normalized) 2
+ +       0.0013 * (normalized) 2012
+ +      -1.0029 * (normalized) 2nd
+ +      -0      * (normalized) 3
+ +      -1.0011 * (normalized) 3rd
+ +      -1.9883 * (normalized) 4
+ +      -0.001  * (normalized) 4th
+ +       0.001  * (normalized) 5
+ +       0.0005 * (normalized) 7
+ +       0.0015 * (normalized) :)
+ +      -0.0015 * (normalized) back
+ +       0.0015 * (normalized) big
+ +       0.0014 * (normalized) birthday
+ +      -0.0014 * (normalized) black
+ +      -1.9992 * (normalized) can't
+ +       0.0009 * (normalized) check
+ +      -0.0001 * (normalized) city
+ +       0.0027 * (normalized) club
+ +       0.0015 * (normalized) coming
+ +       0.0047 * (normalized) concert
+ +      -1.9986 * (normalized) don't
+ +      -0      * (normalized) excited
+ +       0.0015 * (normalized) football
+ +       0.0024 * (normalized) free
+ +       0.0013 * (normalized) friday
+ +       0.0001 * (normalized) game
+ +      -0.0008 * (normalized) gonna
+ +      -1.998  * (normalized) happy
+ +      -0.9989 * (normalized) he's
+ +      -0.9997 * (normalized) home
+ +      -0.9976 * (normalized) hope
+ +      -0.0036 * (normalized) house
+ +       0.0007 * (normalized) i'll
+ +      -0.9981 * (normalized) i'm
+ +      -0.0018 * (normalized) i've
+ +      -1.0031 * (normalized) it's
+ +      -0.9974 * (normalized) knicks
+ +       0.0011 * (normalized) know
+ +       0.0011 * (normalized) league
+ +      -1.9985 * (normalized) life
+ +       0.002  * (normalized) live
+ +      -0.0011 * (normalized) lol
+ +      -0.0036 * (normalized) looking
+ +       0.0011 * (normalized) love
+ +      -0.0015 * (normalized) man
+ +      -0.0006 * (normalized) march
+ +       0.0028 * (normalized) meet
+ +       0.0004 * (normalized) monday
+ +      -0.0009 * (normalized) morning
+ +       0.0024 * (normalized) movie
+ +      -0.0022 * (normalized) news
+ +       0.0014 * (normalized) night
+ +       0.0035 * (normalized) nov
+ +       0.0053 * (normalized) november
+ +       0.0018 * (normalized) oct
+ +       0.0004 * (normalized) october
+ +      -0.0025 * (normalized) oh
+ +       0.5005 * (normalized) open
+ +      -0.002  * (normalized) party
+ +      -1.9847 * (normalized) people
+ +       0.0004 * (normalized) pic
+ +       0.0032 * (normalized) play
+ +      -0.0027 * (normalized) playing
+ +      -1      * (normalized) real
+ +      -0.0044 * (normalized) right
+ +       0.0007 * (normalized) rt
+ +      -1.0007 * (normalized) sat
+ +      -0.0005 * (normalized) saturday
+ +      -0.4995 * (normalized) says
+ +      -0.9996 * (normalized) school
+ +      -0.001  * (normalized) season
+ +      -0.0007 * (normalized) start
+ +       0.0011 * (normalized) state
+ +       0.0009 * (normalized) sun
+ +       0.0004 * (normalized) sunday
+ +       0.0016 * (normalized) super
+ +       0.001  * (normalized) team
+ +      -0.0003 * (normalized) thanks
+ +      -1      * (normalized) that's
+ +       0.0001 * (normalized) think
+ +      -0.0003 * (normalized) thursday
+ +      -0.0001 * (normalized) tickets
+ +      -0.0007 * (normalized) today
+ +      -0.0002 * (normalized) tomorrow
+ +       0.0005 * (normalized) tomorrow!
+ +      -0.0016 * (normalized) tonight
+ +      -0.0013 * (normalized) tuesday
+ +       0      * (normalized) tv
+ +       0.0003 * (normalized) twitter
+ +      -1      * (normalized) wait
+ +      -0.0002 * (normalized) watch
+ +       0.0009 * (normalized) watching
+ +       0.0008 * (normalized) wednesday
+ +       0.001  * (normalized) weekend
+ +      -0.0012 * (normalized) win
+ +      -0.001  * (normalized) work
+ +      -1.9953 * (normalized) world
+ +       0.9994
+
+Number of kernel evaluations: 3679608 (76.419% cached)
+
+Classifier for classes: negative, objective
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.0005 * (normalized) elongationCount
+ +      -0.429  * (normalized) !
+ +       0.2866 * (normalized) &
+ +      -0.7163 * (normalized) ,
+ +       1.5701 * (normalized) -
+ +      -0.0011 * (normalized) 1
+ +      -0.2872 * (normalized) 1st
+ +       0.5682 * (normalized) 2
+ +       1.0022 * (normalized) 2012
+ +      -0.0014 * (normalized) 2nd
+ +       0.7507 * (normalized) 3
+ +      -0.2868 * (normalized) 3rd
+ +      -0.17   * (normalized) 4
+ +       0.4777 * (normalized) 4th
+ +       0.7129 * (normalized) 5
+ +       0.7172 * (normalized) 7
+ +      -0.2886 * (normalized) :)
+ +      -0.572  * (normalized) back
+ +       0.4253 * (normalized) big
+ +      -0      * (normalized) birthday
+ +       0.4748 * (normalized) black
+ +      -2.0398 * (normalized) can't
+ +       1.5711 * (normalized) check
+ +       0.0007 * (normalized) city
+ +       1.4283 * (normalized) club
+ +       0.2848 * (normalized) coming
+ +       0.2993 * (normalized) concert
+ +      -1.2476 * (normalized) don't
+ +       0.2888 * (normalized) football
+ +       1.7322 * (normalized) free
+ +       1.2374 * (normalized) friday
+ +       0.428  * (normalized) game
+ +      -0.4262 * (normalized) gonna
+ +      -0.2874 * (normalized) happy
+ +      -0.7518 * (normalized) he's
+ +      -0.2874 * (normalized) home
+ +      -0.4293 * (normalized) hope
+ +      -0      * (normalized) house
+ +       0.1869 * (normalized) i'll
+ +      -0.4298 * (normalized) i'm
+ +      -0.4441 * (normalized) i've
+ +      -0.8554 * (normalized) it's
+ +      -0.2855 * (normalized) knicks
+ +      -0.2872 * (normalized) know
+ +      -0.1172 * (normalized) league
+ +      -0.0018 * (normalized) life
+ +       1.7124 * (normalized) live
+ +      -0.7151 * (normalized) lol
+ +      -0.1304 * (normalized) looking
+ +      -0.2866 * (normalized) love
+ +      -0.0001 * (normalized) man
+ +       0.4161 * (normalized) march
+ +       1.7126 * (normalized) meet
+ +       0.1414 * (normalized) monday
+ +      -0.2882 * (normalized) morning
+ +       0.1425 * (normalized) movie
+ +      -0.2666 * (normalized) news
+ +       0.1387 * (normalized) night
+ +       1.7132 * (normalized) nov
+ +       1.2375 * (normalized) november
+ +       0.961  * (normalized) oct
+ +       1.7124 * (normalized) october
+ +      -1      * (normalized) oh
+ +       0.878  * (normalized) open
+ +       0.1419 * (normalized) party
+ +      -0.765  * (normalized) people
+ +       0.3107 * (normalized) pic
+ +       0.9608 * (normalized) play
+ +      -0.2874 * (normalized) playing
+ +       0.1427 * (normalized) real
+ +      -0.5983 * (normalized) right
+ +      -0.0206 * (normalized) rt
+ +      -0.2869 * (normalized) sat
+ +       0.2856 * (normalized) saturday
+ +      -0.5687 * (normalized) says
+ +      -0.4296 * (normalized) school
+ +       1.199  * (normalized) season
+ +       0.8549 * (normalized) start
+ +       1.1444 * (normalized) state
+ +       0.2723 * (normalized) sun
+ +       0.0029 * (normalized) sunday
+ +       1.1915 * (normalized) super
+ +       0.5718 * (normalized) team
+ +      -0.5733 * (normalized) thanks
+ +      -0.7648 * (normalized) that's
+ +      -0.4165 * (normalized) think
+ +       1.2843 * (normalized) thursday
+ +       1.1443 * (normalized) tickets
+ +      -0.2875 * (normalized) today
+ +       0.1415 * (normalized) tomorrow
+ +       0.1421 * (normalized) tomorrow!
+ +      -0.1579 * (normalized) tonight
+ +       0.9887 * (normalized) tuesday
+ +       0      * (normalized) tv
+ +       0.0002 * (normalized) twitter
+ +      -0.582  * (normalized) wait
+ +       0.1569 * (normalized) watch
+ +      -0.3737 * (normalized) watching
+ +      -0.2875 * (normalized) wednesday
+ +       0.8575 * (normalized) weekend
+ +      -0.2875 * (normalized) win
+ +      -0.1867 * (normalized) work
+ +      -0.0001 * (normalized) world
+ -       0.7123
+
+Number of kernel evaluations: 2037102 (79.26% cached)
+
+Classifier for classes: neutral, objective
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.0005 * (normalized) elongationCount
+ +      -0.0003 * (normalized) !
+ +       0.1043 * (normalized) &
+ +      -1.3961 * (normalized) ,
+ +       0.4404 * (normalized) -
+ +      -0.0013 * (normalized) 1
+ +      -0.0002 * (normalized) 1st
+ +       0.1452 * (normalized) 2
+ +       0.2934 * (normalized) 2012
+ +       0.3333 * (normalized) 2nd
+ +       0.2634 * (normalized) 3
+ +      -0.0003 * (normalized) 3rd
+ +       1.1514 * (normalized) 4
+ +       0.5213 * (normalized) 4th
+ +       0.0007 * (normalized) 5
+ +       0.0798 * (normalized) 7
+ +      -0.0002 * (normalized) :)
+ +      -0.0009 * (normalized) back
+ +      -0.0002 * (normalized) big
+ +      -0.0002 * (normalized) birthday
+ +       1.1032 * (normalized) black
+ +      -0.1045 * (normalized) can't
+ +       1.1457 * (normalized) check
+ +      -0.0003 * (normalized) city
+ +       0.4387 * (normalized) club
+ +      -0.001  * (normalized) coming
+ +       0.0001 * (normalized) concert
+ +      -0.2633 * (normalized) don't
+ +       0.0005 * (normalized) football
+ +       0.4411 * (normalized) free
+ +       0      * (normalized) friday
+ +      -0.0002 * (normalized) game
+ +      -0.2636 * (normalized) gonna
+ +      -0.4402 * (normalized) he's
+ +      -0.0008 * (normalized) home
+ +      -0.0011 * (normalized) hope
+ +       0      * (normalized) house
+ +       0      * (normalized) i'll
+ +      -0.0003 * (normalized) i'm
+ +      -0.0001 * (normalized) i've
+ +      -0.1041 * (normalized) it's
+ +       0.3687 * (normalized) knicks
+ +      -0.0012 * (normalized) know
+ +      -0.0006 * (normalized) league
+ +       0.4413 * (normalized) life
+ +       1.1464 * (normalized) live
+ +      -0.3338 * (normalized) lol
+ +      -0.0007 * (normalized) looking
+ +      -0.0002 * (normalized) love
+ +       0.0003 * (normalized) man
+ +      -0.0002 * (normalized) march
+ +       1.667  * (normalized) meet
+ +      -0.0005 * (normalized) monday
+ +       0.0003 * (normalized) morning
+ +      -0.1432 * (normalized) movie
+ +      -0.0003 * (normalized) news
+ +      -0.0012 * (normalized) night
+ +       1.5602 * (normalized) nov
+ +      -0.0003 * (normalized) november
+ +       0.4993 * (normalized) oct
+ +       1.4794 * (normalized) october
+ +      -0.5525 * (normalized) oh
+ +       0.8535 * (normalized) open
+ +       0.4475 * (normalized) party
+ +      -0.0005 * (normalized) people
+ +       0.1047 * (normalized) pic
+ +       0.2627 * (normalized) play
+ +      -0.4185 * (normalized) playing
+ +       1      * (normalized) real
+ +      -0.4441 * (normalized) right
+ +      -0.0005 * (normalized) rt
+ +       0.1418 * (normalized) sat
+ +      -0      * (normalized) saturday
+ +      -0.0003 * (normalized) says
+ +      -0.0009 * (normalized) school
+ +       1.4786 * (normalized) season
+ +       1      * (normalized) start
+ +      -0      * (normalized) state
+ +      -0.0002 * (normalized) sun
+ +      -0.0003 * (normalized) sunday
+ +       0.2626 * (normalized) super
+ +       0.4176 * (normalized) team
+ +      -1      * (normalized) thanks
+ +      -0.1413 * (normalized) that's
+ +      -0.264  * (normalized) think
+ +       1.5591 * (normalized) thursday
+ +       0.5208 * (normalized) tickets
+ +      -0.0001 * (normalized) today
+ +       0.0003 * (normalized) tomorrow
+ +       0.0001 * (normalized) tomorrow!
+ +      -0.0005 * (normalized) tonight
+ +       0.4436 * (normalized) tuesday
+ +       0.213  * (normalized) tv
+ +      -0.105  * (normalized) twitter
+ +      -0.1047 * (normalized) wait
+ +      -0.0003 * (normalized) watch
+ +      -0.1409 * (normalized) watching
+ +      -0.4416 * (normalized) wednesday
+ +      -0      * (normalized) weekend
+ +       0.0001 * (normalized) win
+ +       0.0006 * (normalized) work
+ +       0.8548 * (normalized) world
+ -       0.9995
+
+Number of kernel evaluations: 2342684 (84.92% cached)
+
+
+
+Time taken to build model: 20.98 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        3286               45.481  %
+Incorrectly Classified Instances      3939               54.519  %
+Kappa statistic                          0.0232
+Mean absolute error                      0.3325
+Root mean squared error                  0.4235
+Relative absolute error                 96.019  %
+Root relative squared error            101.7669 %
+Total Number of Instances             7225     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.973    0.944    0.461      0.973    0.626      0.071    0.515     0.462     positive
+                 0.002    0.004    0.120      0.002    0.005      -0.009   0.562     0.202     negative
+                 0.011    0.011    0.207      0.011    0.021      -0.002   0.515     0.220     neutral
+                 0.068    0.021    0.369      0.068    0.115      0.102    0.593     0.203     objective
+Weighted Avg.    0.455    0.435    0.332      0.455    0.307      0.046    0.535     0.324     
+
+=== Confusion Matrix ===
+
+    a    b    c    d   <-- classified as
+ 3191    8   23   58 |    a = positive
+ 1254    3   16   20 |    b = negative
+ 1470   10   17   50 |    c = neutral
+ 1000    4   26   75 |    d = objective
+
