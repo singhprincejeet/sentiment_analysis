@@ -67,13 +67,13 @@ The second part of this study explored adding other features to the training dat
   
 This section explored the effect of adding the following features/attributes each individually to the training data:  
 1. No features (benchmark)
-2. (1) Positive and negative word counts
+2. (1) Positive and negative word counts  
    (2) Positive and negative word checks (a boolean if there are positive words; a boolean if there are negative words)
-3. (1) "?" and "!" counts
+3. (1) "?" and "!" counts  
    (2) "?" and "!" checks (a boolean if there are "?"s; a boolean if there are "!"s)
-4. (1) Positive and negative emoticon counts
+4. (1) Positive and negative emoticon counts  
    (2) Positive and negative emoticon checks (a boolean if there are positive emoticons; a boolean if there are negative emoticons)  
-5. (1) Elongated words/punctuation counts  
+5. (1) Elongated words/punctuation counts   
    (2) Elongated words/punctuation checks ((a boolean if there is elongation in the text)
 
 For each feature, 3 runs were performed: (0) a combination of both counts and checks as features, (1) only the counts as a feature, (2) only the checks as a feature. These were compared to the benchmark, and the best out of the 4 were taken, i.e. either one of these three or the feature was not used if the benchmark performed better. The following runs were performed on 100 words instead of 1000 to save computation time. This lead to lower accuracies (especially SVM), but the results could still be compared relative to each other.  
